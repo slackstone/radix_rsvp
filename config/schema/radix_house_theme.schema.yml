@@ -1,0 +1,5 @@
+# Schema for the configuration files of the radix_house_theme theme.
+
+radix_house_theme.settings:
+  type: theme_settings
+  label: 'radix_house_theme settings'
