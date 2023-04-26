@@ -12,9 +12,12 @@ base theme: radix
 
 regions:
   navbar_branding: Navbar branding
-  navbar_left: Navbar left
+  navbar_left:  Navbar left
   navbar_right: Navbar right
+  menu_bar: Menu Bar
+  slideshow_area: Slideshow Area
   header: Header
+  sidebar: Sidebar
   content: Content
   page_bottom: Page bottom
   footer: Footer
