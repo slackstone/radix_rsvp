@@ -5,5 +5,6 @@ style:
       build/css/main.style.css: {  }
   js:
     build/js/main.script.js: {  }
+    js/navigation.js: {}
   dependencies:
     - core/drupal

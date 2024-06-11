@@ -72,3 +72,245 @@ button, .button {
   border-color: $accent-color;
   color: $accent-color;
 }
+
+
+// Navbar styles
+.navbar {
+  background-color: $background-color;
+  .navbar-brand {
+    color: $primary-color;
+    &:hover {
+      color: lighten($primary-color, 10%);
+    }
+  }
+  .navbar-nav {
+    .nav-link {
+      color: $link-color;
+      &:hover {
+        color: lighten($link-color, 10%);
+      }
+    }
+    .active > .nav-link {
+      color: $text-color;
+      background-color: $primary-color;
+    }
+  }
+  .navbar-toggler {
+    background-color: $secondary-color;
+    border-color: $accent-color;
+    &:hover {
+      background-color: lighten($secondary-color, 10%);
+    }
+  }
+}
+
+// Dropdown menu styles
+.navbar-nav .dropdown-menu {
+  background-color: $background-color;
+  .dropdown-item {
+    color: $link-color;
+    &:hover {
+      color: $text-color;
+      background-color: $primary-color;
+    }
+  }
+}
+
+// Extracted Olivero menu styles
+.header {
+  position: relative;
+  z-index: 10;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #6B4423; // Forest Service Brown
+  font-family: 'metropolis', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: var(--sp2);
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 0;
+}
+
+// Underline hover effect
+.navbar .navbar-nav .nav-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: currentColor;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+
+
+.navbar-nav .nav-link {
+  color: #D2B48C; // Tan
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #FFFFFF; // White
+  background-color: #8B5E34; // Darker brown
+}
+
+.navbar-toggler {
+  background-color: #C19A6B; // Button color
+  border: none;
+  color: #FFFFFF; // White
+}
+
+.navbar-toggler:hover {
+  background-color: darken(#C19A6B, 10%);
+}
+
+.dropdown-menu {
+  background-color: #000000; // Black
+  border: none;
+}
+
+.dropdown-item {
+  color: #D2B48C; // Tan
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  color: #FFFFFF; // White
+  background-color: #6B4423; // Forest Service Brown
+}
+
+// Additional styles for overlay and active states
+.is-overlay-active {
+  overflow: hidden;
+}
+
+.is-fixed {
+  position: fixed;
+  width: 100%;
+}
+
+.is-active {
+  display: block;
+}
+
+
+/* Base styles for the menu */
+.menu-wrapper {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 300px;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 1000;
+}
+
+/* Styles when the menu is active */
+.menu-wrapper.is-active {
+  display: block;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Menu toggle button styles */
+.menu-toggle {
+  display: inline-block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Additional styles for body when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* @license GPL-2.0-or-later https://www.drupal.org/licensing/faq */
+@font-face {
+    font-family: metropolis;
+    src: url(/core/themes/olivero/fonts/metropolis/Metropolis-Regular.woff2) format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: metropolis;
+    src: url(/core/themes/olivero/fonts/metropolis/Metropolis-Bold.woff2) format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: metropolis;
+    src: url(/core/themes/olivero/fonts/metropolis/Metropolis-SemiBold.woff2) format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Lora;
+    src: local("Lora Regular"),local("Lora-Regular"),url(/core/themes/olivero/fonts/lora/lora-v14-latin-regular.woff2) format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Lora;
+    src: local("Lora Italic"),local("Lora-Italic"),url(/core/themes/olivero/fonts/lora/lora-v14-latin-italic.woff2) format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Lora;
+    src: local("Lora Bold"),local("Lora-Bold"),url(/core/themes/olivero/fonts/lora/lora-v14-latin-700.woff2) format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+// Apply the Metropolis font to the navbar
+.navbar,
+.navbar a,
+.navbar .navbar-brand,
+.navbar .navbar-nav .nav-link {
+    font-family: 'metropolis', sans-serif;
+    font-weight: 700;
+}
