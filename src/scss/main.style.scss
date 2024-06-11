@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 @import 'init';
 @import 'bootstrap';
-
+@import 'bootswatch';
 // Parent Drupal related components
 // -----------------------------------------------------------------------------
 @import '../../components/offcanvas/offcanvas';
@@ -14,20 +14,32 @@
 @import "base/helpers";
 @import "base/typography";
 
+
 // Variables for color palette
-$background-color: #000000;
-$primary-color: #6B4423; // Forest Service Brown
-$secondary-color: #8B5E34;
+$background-color: #ffffff;
+$nav-link-color: #ffffff;
+$nav-link-hover:#a8fa25;
+$black: #000000;
+$primary-color: #1b0f05; // Forest Service Brown
+$secondary-color: #3a0e34;
 $accent-color: #A67B5B;
-$text-color: #FFFFFF; // White
-$link-color: #D2B48C; // Tan
-$button-color: #C19A6B;
+$text-color: #141313; // White
+$link-color: #3a0e34; // Tan
+$button-color: #3a0e34;;
 
 // Body and general page styles
 body {
-  background-color: $background-color;
+  background-color: $black;
   color: $text-color;
   font-family: Arial, sans-serif;
+}
+
+main {
+  background-color: $background-color;
+}
+
+footer {
+  background-color: $black;
 }
 
 // Headings
@@ -48,11 +60,10 @@ a {
 // Buttons
 button, .button {
   background-color: $button-color;
-  color: $text-color;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-
+  color: $background-color;
   &:hover {
     background-color: darken($button-color, 10%);
   }
@@ -80,23 +91,23 @@ button, .button {
   .navbar-brand {
     color: $primary-color;
     &:hover {
-      color: lighten($primary-color, 10%);
+      color: lighten($nav-link-color, 10%);
     }
   }
   .navbar-nav {
     .nav-link {
-      color: $link-color;
+      color: $nav-link-color;
       &:hover {
-        color: lighten($link-color, 10%);
+        color: $nav-link-hover;
       }
     }
     .active > .nav-link {
-      color: $text-color;
+      color: $nav-link-hover;
       background-color: $primary-color;
     }
   }
   .navbar-toggler {
-    background-color: $secondary-color;
+    background-color: $black;
     border-color: $accent-color;
     &:hover {
       background-color: lighten($secondary-color, 10%);
@@ -126,13 +137,13 @@ button, .button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #6B4423; // Forest Service Brown
+  background-color: #1d0e02; // Forest Service Brown
   font-family: 'metropolis', sans-serif;
   font-size: 1rem;
   font-weight: bold;
   line-height: var(--sp2);
   position: relative;
-  padding: 0.5rem 1rem;
+  padding: 0;
 }
 
 .navbar-nav {
@@ -146,6 +157,8 @@ button, .button {
 .navbar .navbar-nav .nav-link {
     position: relative;
     display: inline-block;
+    padding-top: 0;
+    font-size: 1.3rem;
     padding-bottom: 5px;
     transition: color 0.3s ease;
 }
@@ -166,8 +179,6 @@ button, .button {
     left: 0;
 }
 
-
-
 .navbar-nav .nav-link {
   color: #D2B48C; // Tan
   padding: 0.5rem 1rem;
@@ -176,7 +187,7 @@ button, .button {
 
 .navbar-nav .nav-link:hover {
   color: #FFFFFF; // White
-  background-color: #8B5E34; // Darker brown
+  background-color: #000000; // Darker brown
 }
 
 .navbar-toggler {
@@ -186,7 +197,7 @@ button, .button {
 }
 
 .navbar-toggler:hover {
-  background-color: darken(#C19A6B, 10%);
+  background-color: $primary-color;
 }
 
 .dropdown-menu {
@@ -228,7 +239,7 @@ button, .button {
   right: 0;
   height: 100%;
   width: 300px;
-  background: #fff;
+  background: $primary-color;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform: translateX(100%);
