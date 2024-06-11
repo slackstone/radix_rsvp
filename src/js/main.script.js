@@ -1,13 +1,4 @@
-import { Toast, Tooltip } from './_bootstrap';
+// * Bootstrap libraries
+import "./_bootstrap";
 
-(function () {
-	// * Tooltip initialization, remove it if not necessary
-	document
-		.querySelectorAll('[data-toggle="tooltip"]')
-		.forEach((tooltipElement) => new Tooltip(tooltipElement));
-
-	// * Toast initialization, remove it if not necessary
-	document
-		.querySelectorAll('.toast')
-		.forEach((toastElement) => new Toast(toastElement));
-})();
+// * Any other global site-wide JavaScript should be placed here.

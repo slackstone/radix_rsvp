@@ -1,10 +1,74 @@
 // Bootstrap
 // -----------------------------------------------------------------------------
+@import 'init';
 @import 'bootstrap';
 
 // Parent Drupal related components
 // -----------------------------------------------------------------------------
-@import '../components/offcanvas/offcanvas';
+@import '../../components/offcanvas/offcanvas';
 
 // Include any custom stylesheets here
 // -----------------------------------------------------------------------------
+@import "base/elements";
+@import "base/functions";
+@import "base/helpers";
+@import "base/typography";
+
+// Variables for color palette
+$background-color: #000000;
+$primary-color: #6B4423; // Forest Service Brown
+$secondary-color: #8B5E34;
+$accent-color: #A67B5B;
+$text-color: #FFFFFF; // White
+$link-color: #D2B48C; // Tan
+$button-color: #C19A6B;
+
+// Body and general page styles
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: Arial, sans-serif;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  color: $primary-color;
+}
+
+// Links
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Buttons
+button, .button {
+  background-color: $button-color;
+  color: $text-color;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($button-color, 10%);
+  }
+}
+
+// Other elements (e.g., cards, panels)
+.card, .panel {
+  background-color: $secondary-color;
+  color: $text-color;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+// Accent elements (e.g., borders, small details)
+.accent {
+  border-color: $accent-color;
+  color: $accent-color;
+}

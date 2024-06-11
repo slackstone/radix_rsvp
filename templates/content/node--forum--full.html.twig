@@ -4,8 +4,8 @@
  * Template for a forum node in full display mode.
  */
 #}
-{% include "@radix/content/node.twig" %}
-  {% block content %}
+{% extends "radix:node" %}
+  {% block node_content %}
     <div class="row">
       <div class="col-md-8">
         {% if display_submitted %}

@@ -11,8 +11,10 @@
  * @see template_preprocess_input()
  */
 #}
-{% include '@radix/form/input.twig' with {
-  attributes: attributes.removeClass('button'),
-  remove_form_control: true,
-  utility_classes: ['btn', 'btn-primary']
-} %}
+{%
+  include 'radix:input' with {
+    attributes: attributes.removeClass('button'),
+    remove_form_control: true,
+    input_utility_classes: ['btn', 'btn-primary']
+  }
+%}

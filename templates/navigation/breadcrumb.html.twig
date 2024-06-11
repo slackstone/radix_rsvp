@@ -1,9 +1,14 @@
 {#
 /**
  * @file
- * Template for the breadcrumb.
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
  */
 #}
-{% include '@radix/breadcrumb/breadcrumb.twig' with {
-  breadcrumb: breadcrumb,
-} %}
+{%
+  include 'radix:breadcrumb' with {
+    breadcrumb: breadcrumb,
+  }
+%}
