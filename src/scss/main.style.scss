@@ -84,7 +84,6 @@ button, .button {
   color: $accent-color;
 }
 
-
 // Navbar styles
 .navbar {
   background-color: $background-color;
@@ -125,6 +124,12 @@ button, .button {
       background-color: $primary-color;
     }
   }
+}
+
+// Set Logo dimension
+.navbar-brand__logo img {
+  min-width: 230px;
+  min-height: 35px;
 }
 
 // Extracted Olivero menu styles

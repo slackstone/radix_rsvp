@@ -12293,6 +12293,11 @@ button:hover, .button:hover {
   background-color: #1b0f05;
 }
 
+.navbar-brand__logo img {
+  min-width: 230px;
+  min-height: 35px;
+}
+
 .header {
   position: relative;
   z-index: 10;
