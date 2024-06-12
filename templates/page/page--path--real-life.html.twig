@@ -1,0 +1,254 @@
+{#
+/**
+ * @file
+ * Template for the main page.
+ */
+#}
+
+<style>
+body {
+  margin: 0;
+  background: #000;
+  padding-top: 0 !important;
+}
+.block--glueboxsitebranding-2 {
+  display: block;
+  float: left;
+  margin-left: 3rem;
+}
+
+.header-container {
+  padding-top: 20px;
+  width: 100%;
+  max-width: 1320;
+  margin: auto;
+  background-color: unset;
+  background-image: none;
+}
+
+ul#superfish-central-links {
+  max-width: none;
+  width: unset;
+}
+.block--centrallinks-2 .sf-style-none a {
+color: white !important;
+text-decoration: none;
+}
+
+/* Hide the admin toolbar */
+#toolbar-bar {display: none;}
+video_break {
+    position: fixed; /* Add fixed positioning to cover the entire viewport */
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto; /* Set the width to auto to maintain the video's aspect ratio */
+    height: auto; /* Set the height to auto to maintain the video's aspect ratio */
+    z-index: -100;
+    object-fit: cover; /* Clip the video to cover the container */
+    transition: 1s opacity;
+}
+.video-container {
+    min-height: 600px; /* Set the minimum height */
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Establish positioning context for child elements */
+    overflow: hidden; /* Clip any overflow content */
+}
+.video-container video {
+    width: auto; /* Make the video fill its container */
+    height: auto; /* Maintain the video's aspect ratio */
+    min-height: 600px; /* Set a minimum height for the video */
+    position: absolute;
+    top: 50%; /* Center the video vertically */
+    left: 50%; /* Center the video horizontally */
+    transform: translate(-50%, -50%); /* Center and scale the video */
+}
+.video-container h1 {
+    position: absolute; /* Position the H1 element relative to the container */
+    bottom: 0; /* Position it vertically in the middle */
+    left: 50%; /* Position it horizontally in the middle */
+    transform: translate(-50%, -50%); /* Center it precisely */
+    color: #fff; /* Set the text color to white or your desired color */
+    text-align: center; /* Center the text horizontally */
+    z-index: 5; /* Place the text above the video (higher z-index) */
+    font-size: 4.5625rem;
+    line-height: 100%;
+}
+.content-container {
+    position: absolute; /* Position the container relative to the video-container */
+    top: 50%; /* Position it at the bottom of the video-container */
+    left: 50%; /* Position it horizontally in the middle */
+    transform: translateX(-50%); /* Center it horizontally */
+    text-align: center; /* Center the content horizontally */
+    z-index: 5; /* Place the container above the video (higher z-index) */
+    background: rgba(0, 0, 0, 0.5); /* 50% transparent black background */
+    padding: 20px; /* Add padding as needed */
+    width: 80%; /* Set the width to 80% of the video-container */
+    max-width: 600px; /* Set a maximum width for responsiveness */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.content-container h2 {
+    color: white; /* Set the text color to white or your desired color */
+    font-size: 2.5625rem;
+    line-height: 100%;
+    margin: 0; /* Remove any default margin */
+}
+
+.video-container button {
+    position: absolute; /* Position the button directly within the video container */
+    bottom: 10px; /* Adjust the distance from the bottom as needed */
+    right: 3rem; /* Adjust the distance from the left as needed */
+    background-color: #007bff; /* Set the button background color */
+    color: #fff; /* Set the button text color */
+    padding:4px 4px; /* Adjust padding as needed */
+    font-size: small;
+    border: none; /* Remove button border */
+    cursor: pointer;
+    z-index: 10; /* Place the button above other elements (higher z-index) */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 50% transparent black background */
+    z-index: 2; /* Place the overlay above the video (higher z-index) */
+}
+
+#superfish-central-links {
+    background: none !important;
+    }
+.menu_bar {
+  background-color: unset;
+  background-image: none !important;
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
+}
+.menu_bar.stickynav-active {
+  background-color: black;
+}
+
+.stopfade {
+   opacity: .5;
+}
+
+@media (max-width: 768px) { 
+.content-container h2 {
+font-size: 1.5rem;
+top: 70%;
+}
+.content-container {
+top: 70%;
+}
+
+</style>
+
+<div class="page frontpage">
+<div class="video-container">
+<video playsinline="" autoplay="" muted="" loop="" poster="https://gluebox.com/sites/default/files/banner_images/Summer_of_2017_Philadelphia.jpg" id="bgvid">
+<source src="https://gluebox.com/sites/default/files/Cactus_Web.mp4" type="video/mp4">
+</video>
+<div class="overlay">
+
+<div class="header-container">
+<div class="header">
+ <div class="right-region">
+    {% block right %}
+      {% if page.navbar_right %}
+        {{ page.navbar_right }}
+      {% endif %}
+    {% endblock %}
+ </div>
+ <div class="branding">
+  <div class="container">
+    {% block branding %}
+      {% if page.navbar_branding %}
+        {{ page.navbar_branding }}
+      {% endif %}
+    {% endblock %}
+  </div>
+</div>
+<div class="menu_bar">
+{% block menu_bar %}
+      {% if page.menu_bar %}
+        {{ page.menu_bar }}
+      {% endif %}
+    {% endblock %}
+</div>
+</div>
+</div> 
+<div class="content-container">
+<h2>A <a href="/design/affiliated_sites" title="Build Guide" style="color: white;">Build Guide</a> For Affiliated Content Networks</h2>
+    </div>
+<button class="button" id="bgvideo">Pause Video</button>
+</div>
+</div>
+
+{#}
+  {% embed '@radix_house_theme/navbar/navbar.twig' with {
+    placement: 'sticky-top',
+    container: 'fixed',
+    color: 'light',
+    utility_classes: ['bg-dark'],
+  } %}
+
+    {% block left %}
+      {% if page.navbar_left %}
+        <div class="mr-auto">
+          {{ page.navbar_left }}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+  {% endembed %}
+#}
+<main class="row">
+<a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+<script type="text/javascript" src="{{ directory }}/js/player-controls.js"></script>
+
+<div class="slideshow_area">
+{% block slideshow_area %}
+      {% if page.slideshow_area %}
+        {{ page.slideshow_area }}
+      {% endif %}
+    {% endblock %}
+</div>
+<div class="body-content col-lg-9 col-12 order-lg-2">
+    {% if page.header %}
+      <header class="page__header ">
+        <div class="container">
+          {{ page.header }}
+        </div>
+      </header>
+    {% endif %}
+    {% if page.content %}
+      <div class="page__content">
+        <div class="container">
+          {{ page.content }}
+        </div>
+      </div>
+    {% endif %}
+</div>
+<div class="sidebar col-lg-3 col-12 order-lg-1">
+    {% if page.sidebar %}
+      <div class="sidebar__content">
+          {{ page.sidebar }}
+      </div>
+    {% endif %}
+<div>
+</main>
+
+  {% if page.footer %}
+    <footer class="page__footer">
+      <div class="container"><div class="row">
+          {{ page.footer }}
+      </div></div>
+    </footer>
+  {% endif %}
+</div>
