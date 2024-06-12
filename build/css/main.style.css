@@ -12243,7 +12243,7 @@ button:hover, .button:hover {
 }
 
 .card, .panel {
-  background-color: #3a0e34;
+  background-color: #f9fafd;
   color: #141313;
   padding: 20px;
   border-radius: 5px;
@@ -12251,8 +12251,8 @@ button:hover, .button:hover {
 }
 
 .accent {
-  border-color: #A67B5B;
-  color: #A67B5B;
+  border-color: #f9fafd;
+  color: #f9fafd;
 }
 
 .navbar {
@@ -12277,7 +12277,7 @@ button:hover, .button:hover {
 }
 .navbar .navbar-toggler {
   background-color: #000000;
-  border-color: #A67B5B;
+  border-color: #f9fafd;
 }
 .navbar .navbar-toggler:hover {
   background-color: #000000;

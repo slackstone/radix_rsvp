@@ -19,7 +19,7 @@ $nav-link-hover:#b7fd6e;
 $black: #000000;
 $primary-color: #1b0f05; // Forest Service Brown
 $secondary-color: #3a0e34;
-$accent-color: #A67B5B;
+$accent-color: #f9fafd;
 $text-color: #141313; // White
 $link-color: #3a0e34; // Tan
 $button-color: #3a0e34;;
@@ -68,7 +68,7 @@ button, .button {
 
 // Other elements (e.g., cards, panels)
 .card, .panel {
-  background-color: $secondary-color;
+  background-color: $accent-color;
   color: $text-color;
   padding: 20px;
   border-radius: 5px;
