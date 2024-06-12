@@ -12269,10 +12269,10 @@ button:hover, .button:hover {
   color: #ffffff;
 }
 .navbar .navbar-nav .nav-link:hover {
-  color: #a8fa25;
+  color: #b7fd6e;
 }
 .navbar .navbar-nav .active > .nav-link {
-  color: #a8fa25;
+  color: #b7fd6e;
   background-color: #1b0f05;
 }
 .navbar .navbar-toggler {
