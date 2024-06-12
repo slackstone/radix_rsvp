@@ -87,6 +87,9 @@ button, .button {
 // Navbar styles
 .navbar {
   background-color: $background-color;
+  // Define a custom property (CSS variable)
+  --bs-navbar-toggler-border-radius: 0;
+
   .navbar-brand {
     color: $primary-color;
     &:hover {
