@@ -12299,6 +12299,8 @@ button:hover, .button:hover {
 }
 
 .navbar-toggler-icon::after {
+  font-size: 2rem;
+  font-weight: bold;
   content: "☰"; /* Hamburger icon */
   display: inline-block;
   width: 100%; /* Full width */
@@ -12309,6 +12311,8 @@ button:hover, .button:hover {
 }
 
 .navbar-toggler[aria-expanded=true] .navbar-toggler-icon::after {
+  font-size: 2rem;
+  font-weight: bold;
   content: "X"; /* Close icon */
   opacity: 1; /* Ensure visibility */
   transform: rotate(90deg); /* Rotate for smooth transition */
