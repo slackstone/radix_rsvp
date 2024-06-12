@@ -112,11 +112,10 @@ button, .button {
     background-color: $black;
     border-color: $accent-color;
     &:hover {
-      background-color: lighten($secondary-color, 10%);
+      background-color: $black;
     }
   }
 }
-
 
 .navbar-toggler-icon {
   display: inline-block;
@@ -144,7 +143,6 @@ button, .button {
   text-align: center;
   transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
 }
-
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
   font-size: 2rem; // Adjust the size as needed
   font-weight: bold; // Make it bold
@@ -152,10 +150,6 @@ button, .button {
   opacity: 1; /* Ensure visibility */
   transform: rotate(90deg); /* Rotate for smooth transition */
 }
-
-
-
-
 
 // Dropdown menu styles
 .navbar-nav .dropdown-menu {
