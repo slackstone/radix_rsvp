@@ -12332,7 +12332,6 @@ button:hover, .button:hover {
 .navbar-brand__logo img {
   min-width: 230px;
   min-height: 35px;
-  border: 1px solid black;
 }
 
 .header {
