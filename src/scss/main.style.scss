@@ -15,9 +15,9 @@
 // Variables for color palette
 $background-color: #ffffff;
 $nav-link-color: #ffffff;
-$nav-link-hover:#b7fd6e;
+$nav-link-hover:#brun watch7fd6e;
 $black: #000000;
-$primary-color: #1b0f05; // Forest Service Brown
+$primary-color: #26242e; //grey
 $secondary-color: #3a0e34;
 $accent-color: #f9fafd;
 $text-color: #141313; // White
@@ -33,6 +33,11 @@ body {
 
 main {
   background-color: $background-color;
+}
+
+.author, .author a {
+  /* Your styles here */
+  color: white;
 }
 
 footer {
@@ -94,7 +99,7 @@ button, .button {
     }
   }
   .navbar-nav {
-    .nav-link {
+    .nav-link, .nav-link a {
       color: $nav-link-color;
       &:hover {
         color: $nav-link-hover;
