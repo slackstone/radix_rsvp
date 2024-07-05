@@ -17,6 +17,7 @@ $background-color: #ffffff;
 $nav-link-color: #ffffff;
 $nav-link-hover:#brun watch7fd6e;
 $black: #000000;
+$white: #ffffff;
 $primary-color: #26242e; //grey
 $secondary-color: #3a0e34;
 $accent-color: #f9fafd;
@@ -26,7 +27,7 @@ $button-color: #3a0e34;;
 
 // Body and general page styles
 body {
-  background-color: $black;
+  background-color: $white;
   color: $text-color;
   font-family: Arial, sans-serif;
 }
@@ -88,7 +89,7 @@ button, .button {
 
 // Navbar styles
 .navbar {
-  background-color: $background-color;
+  background-color: $white;
   // Define a custom property (CSS variable)
   --bs-navbar-toggler-border-radius: 0;
 
@@ -100,7 +101,7 @@ button, .button {
   }
   .navbar-nav {
     .nav-link, .nav-link a {
-      color: $nav-link-color;
+      color: $black;
       &:hover {
         color: $nav-link-hover;
       }
@@ -181,7 +182,6 @@ button, .button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1d0e02; // Forest Service Brown
   font-family: 'metropolis', sans-serif;
   font-size: 1rem;
   font-weight: bold;
