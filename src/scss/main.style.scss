@@ -34,10 +34,14 @@ body {
 
 main {
   background-color: $background-color;
+  transition: margin-top 0.3s ease-in-out;
+  -webkit-transition: margin-top 0.3s ease-in-out; /* Safari */
+  -moz-transition: margin-top 0.3s ease-in-out;    /* Firefox */
+  -o-transition: margin-top 0.3s ease-in-out;      /* Opera */
+  -ms-transition: margin-top 0.3s ease-in-out;     /* IE10 */
 }
 
 .author, .author a {
-  /* Your styles here */
   color: white;
 }
 
