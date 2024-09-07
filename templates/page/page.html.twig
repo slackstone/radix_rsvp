@@ -42,7 +42,18 @@
  * @see html.html.twig
  */
 #}
-<div id="logo_bar">
-<img src="/themes/custom/radix_house_theme/images/dark_logo_text.svg" alt="{{ site_name }} logo" class="logo-image" style="min-width: 300px;">
-</div>
+    <div class="branding-wrapper">
+      <a href="{{ path('<front>') }}" class="navbar-brand d-inline-flex align-items-center">
+<img src="/themes/custom/radix_house_theme/images/Example_Logo_200.png" alt="{{ site_name }}" width="100px" height="100px" />
+        {% if is_front %}
+          <!-- Front page: Light logo initially -->
+          <img src="/themes/custom/radix_house_theme/images/light_logo_text.svg" alt="{{ site_name }} logo" id="default-logo" class="logo-image" style=" min-width:>
+          <img src="/themes/custom/radix_house_theme/images/dark_logo_text.svg" alt="{{ site_name }} alternative logo" id="alternative-logo" class="logo-image" sty>
+        {% else %}
+          <!-- Other pages: Dark logo only -->
+          <img src="/themes/custom/radix_house_theme/images/dark_logo_text.svg" alt="{{ site_name }} logo" class="logo-image" style="min-width: 300px;">
+        {% endif %}
+        <span class="site-name">{{ site_name }}</span>
+      </a>
+    </div>
 {% include 'radix:page' %}
