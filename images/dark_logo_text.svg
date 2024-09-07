@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="100">
+    <!-- Declare the external font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
+
+        text {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .bold-text {
+            font-weight: 700;
+        }
+
+        .regular-text {
+            font-weight: 400;
+        }
+    </style>
+    
+    <!-- Bold Site Name -->
+    <text x="10" y="40" font-size="30" class="bold-text" fill="black">Town of Edmunds Hill, Vermont</text>
+    
+    <!-- Regular Sub-site Tagline -->
+    <text x="10" y="80" font-size="20" class="regular-text" fill="black">Village of Streeter Falls</text>
+</svg>
