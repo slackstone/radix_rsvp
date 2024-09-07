@@ -63,12 +63,10 @@
 
   <!-- Content over the background -->
   <div class="splash-content">
-<strong>    <h1 style="color: white";>Vermont</h1>
-<a href='/camp' style="color: #ff926c" >Let's go camping! </a>
-</strong>  </div>
-</section>
-<div id="target-element" style="margin-top: -80px; height: 80px;"> </div>
-  <div id="splash--scroller">
-<a href="#main-content">Discover Our Neighborhoods</a><strong> <a href="#main-content" style="color: #ff926c""> >> </a></strong>
+    <h1>Your Site Title</h1>
+    <p>Some introductory text or slogan</p>
   </div>
+</section>
+
+<div id="target-element" style="border: 2px solid black;  margin-top: -80px; height: 80px;"> </div>
 {% include 'radix:page' %}

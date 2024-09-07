@@ -3,8 +3,13 @@ style:
   css:
     theme:
       build/css/main.style.css: {  }
+      https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap: {}
   js:
     build/js/main.script.js: {  }
-    js/navigation.js: {}
+    src/js/navigation.js: {}
   dependencies:
     - core/drupal
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/once

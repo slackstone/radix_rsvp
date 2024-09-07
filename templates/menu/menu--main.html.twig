@@ -18,6 +18,12 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
+
+<!-- Show the custom block here for desktop, above LG -->
+<div class="custom-block-above-lg">
+  {{ custom_block }}
+</div>
+
 {%
   include 'radix:nav' with {
     nav_utility_classes: [
@@ -25,3 +31,8 @@
     ],
   }
 %}
+
+<!-- Show the custom block here for desktop, below LG -->
+<div class="custom-block-below-lg">
+  {{ custom_block }}
+</div>

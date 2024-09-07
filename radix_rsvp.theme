@@ -10,3 +10,32 @@ $includes_path = dirname(__FILE__) . '/includes/*.theme';
 foreach (glob($includes_path) as $file) {
   require_once dirname(__FILE__) . '/includes/' . basename($file);
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function radix_rsvp_preprocess_block(&$variables) {
+  // Add is_front variable to block templates.
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu--main.html.twig.
+ */
+function radix_rsvp_preprocess_menu__main(&$variables) {
+  // Load the block using its UUID.
+  $uuid = 'a7a0b60f-ebd7-456e-abe9-a268f8616fb5';
+  $block_content = \Drupal::entityTypeManager()
+    ->getStorage('block_content')
+    ->loadByProperties(['uuid' => $uuid]);
+
+  // Check if the block content was loaded.
+  if ($block_content) {
+    $block_content_entity = reset($block_content); // Get the block content entity.
+    
+    // Render the block and pass it to the template as 'custom_block'.
+    $variables['custom_block'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('block_content')
+      ->view($block_content_entity);
+  }
+}

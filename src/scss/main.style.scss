@@ -29,6 +29,7 @@ $button-color: #3a0e34;;
 body {
   background-color: $white;
   color: $text-color;
+  //font-family: 'Work Sans', sans-serif;
   font-family: Arial, sans-serif;
 }
 
@@ -39,6 +40,8 @@ main {
   -moz-transition: margin-top 0.3s ease-in-out;    /* Firefox */
   -o-transition: margin-top 0.3s ease-in-out;      /* Opera */
   -ms-transition: margin-top 0.3s ease-in-out;     /* IE10 */
+  position: relative;
+  z-index: 40; /* Higher z-index to place <main> above #splash--wordmark */
 }
 
 .author, .author a {
@@ -46,7 +49,16 @@ main {
 }
 
 footer {
-  background-color: $black;
+  position: relative;
+  background-color: #3f6688;
+  color: white;
+  z-index: 20;
+}
+footer a {
+  font-family: "metropolis", sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: black;
 }
 
 // Headings
@@ -92,6 +104,18 @@ button, .button {
 }
 
 // Navbar styles
+@include media-breakpoint-down(lg) {
+  .navbar .container {
+    max-width: none; // Unset the max-width
+    width: 100%; // Ensure full width
+    padding: 0; // Optional: Remove padding
+  }
+.navbar .container ul {
+    padding: 0;
+    background: white;
+  }
+}
+
 .navbar {
   background-color: $white;
   // Define a custom property (CSS variable)
@@ -116,10 +140,10 @@ button, .button {
     }
   }
   .navbar-toggler {
-    background-color: $black;
+    background-color: grey;
     border-color: $accent-color;
     &:hover {
-      background-color: $black;
+      background-color: grey;
     }
   }
 }
@@ -179,7 +203,19 @@ button, .button {
 // Extracted Olivero menu styles
 .header {
   position: relative;
-  z-index: 10;
+  z-index: 30;
+}
+
+/* Default main-content background */
+#main-content {
+  background-color: white;
+  transition: background-color 0.3s;
+}
+
+/* Scrolled main-content background */
+#main-content.content-scrolled {
+  background-color: black;
+  color: white; /* Optional: Adjust text color as well */
 }
 
 .navbar {
@@ -221,6 +257,26 @@ button, .button {
     background-color: currentColor;
     transition: width 0.3s ease, left 0.3s ease;
 }
+
+/* Initial state */
+.navbar {
+  background-color: #859C7F;
+  z-index: 88;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* State when the navbar is triggered by the scroll */
+.navbar.scrolled {
+  background-color: white !important; /* Solid  background */
+  z-index: 89 !important; /* Higher z-index when scrolled */
+}
+
+/* Additional styles you want to toggle on scroll */
+.navbar.scrolled .navbar-brand__logo {
+  transform: scale(1.1); /* Example of scaling another element inside navbar */
+}
+
+
 
 .navbar .navbar-nav .nav-link:hover::before {
     width: 100%;
@@ -292,7 +348,7 @@ button, .button {
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform: translateX(100%);
   opacity: 0;
-  z-index: 1000;
+  z-index: 6;
 }
 
 /* Styles when the menu is active */
@@ -372,4 +428,206 @@ body.menu-open {
 .navbar .navbar-nav .nav-link {
     font-family: 'metropolis', sans-serif;
     font-weight: 700;
+}
+// Frontpage Hero Inversion
+body.path-frontpage .nav-link {
+color: #859c7f !important;
+}
+
+// Front page scrolled state
+body.path-frontpage .nav-link {
+  color: brown; // Black text when scrolled on the front page
+}
+
+/* Apply fixed navbar styling only on the front page */
+body.path-frontpage .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 30;
+  // background-color: rgba(0, 0, 0, 0.5); /* 50% transparent black */
+  // Let's go Coffee
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
+  z-index: 88; /* Default z-index */
+  transition: background-color 0.3s ease, z-index 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for visual separation */
+  border-bottom: 1px solid rgba(77, 59, 46, 0.5);
+}
+body.path-frontpage .toolbar-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+/* Splash Image Container */
+.splash-image-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Hide overflow */
+}
+
+.splash-image-container .bg-img {
+  position: fixed; /* Fix the background image */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire container */
+  z-index: -1; /* Ensure the image is behind other content */
+}
+
+/* Keep the splash content fixed */
+.splash-content {
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset for perfect centering */
+  z-index: 10; /* Ensure the content is above other elements */
+  color: white; /* Adjust based on your design */
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7); /* 50% transparent coffee */
+  border: 1px solid rgba(77, 59, 46, 0.5);
+  border-radius: 10px; /* Adjust the value for more or less rounded edges */
+  padding: 3%;
+  max-width: 400px;
+}
+
+/* Body text that scrolls over the splash content */
+body.path-frontpage {
+  padding-top: 100vh; /* Push the main content below the splash section */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Fixed Bar at the Bottom */
+#splash--scroller {
+  position: fixed;
+  bottom: 0;
+  width: 100%; /* Full width */
+  background-color: #859c7f;
+  padding: 7px 0 8px;
+  text-align: center; /* Center the text */
+  color: black; /* Text color */
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, .4);
+  z-index: 15; /* Ensure it's above other elements */
+}
+
+/* Link Style inside the Fixed Bar */
+#splash--scroller a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  font-size: 1.2rem; /* Adjust size as needed */
+}
+
+#splash--scroller a:hover {
+  color: #white; /* Hover effect */
+}
+@media (max-width: 992px) {
+  .navbar-nav {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap */
+    flex-direction: row-reverse;
+    padding-left: 0;
+    list-style: none;
+    justify-content: space-between; /* Spread items evenly */
+  }
+
+  .navbar-nav .nav-item {
+    flex: 0 0 50%; /* Make each item take 50% of the width */
+    max-width: 50%; /* Ensure it doesn't go over 50% */
+    box-sizing: border-box; /* Ensure padding and borders don't affect width */
+    display: flex;
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+  }
+
+/* For the submenu under a parent item */
+  ul.dropdown-menu.show {
+    position: absolute; /* Ensure it's positioned correctly beneath the parent */
+    width: 100%; /* Take up 100% of the parent width */
+    top: 100%; /* Position the submenu directly below the parent */
+    left: 0; /* Align the submenu with the parent */
+    border: 1px solid red; /* Just to visualize the submenu's boundary */
+    background-color: white; /* Ensure submenu has a background */
+    z-index: 9999; /* Make sure the submenu is on top of other elements */
+ }
+
+/* Adjust the submenu list items to ensure they display correctly */
+  ul.dropdown-menu.show .dropdown-item {
+    padding: 10px;
+    width: 100%; /* Make sure each submenu item takes up full width */
+    text-align: left; /* Align the text as desired */
+  }
+
+  .navbar-nav .nav-link {
+    display: block;
+    width: 100%; /* Ensure the link takes the full width of the parent */
+    text-align: center; /* Center the text */
+    padding: 1rem; /* Adjust padding to suit your design */
+  }
+}
+
+/* Hide the "custom" block below LG screen size */
+.custom-block-above-lg {
+  display: block;
+}
+
+.custom-block-below-lg {
+  display: none;
+}
+
+/* show the custom sub-menu */
+@media (max-width: 991px) { /* This is the Bootstrap LG breakpoint (992px) */
+  /* Show the block below LG screen size */
+  .custom-block-above-lg {
+    display: none;
+  }
+  .custom-block-below-lg {
+    display: block;
+  }
+}
+
+/* Have the sub-menu go full width */
+ul.dropdown-menu.show {
+border: 1px solid black;
+}
+
+.navbar-collapse.collapse.show {
+background: white;
+}
+
+.dropdown-item {
+background: grey;
+}
+
+
+/* Target the dropdown element on hover */
+.navbar-nav .dropdown:hover > .dropdown-menu {
+  display: block; /* Show the dropdown when hovering over the parent */
+  visibility: visible; /* Ensure the dropdown is visible */
+  opacity: 1; /* Make sure the dropdown is fully opaque */
+}
+
+/* Optional: smooth transition for showing/hiding the dropdown */
+.dropdown-menu {
+  display: none; /* Hide the dropdown by default */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.3s ease; /* Smooth transition for the opacity */
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block; /* Show the dropdown on hover */
+  opacity: 1; /* Set opacity to fully visible */
+}
+
+/* Fixes to ensure the dropdown aligns correctly */
+ul.navbar-nav .dropdown-menu {
+  position: absolute;
+  top: 100%; /* Ensure the dropdown appears below the parent */
+  left: 0; /* Align with the left side of the parent */
+  width: 100%; /* Make sure the dropdown takes up full width if needed */
 }

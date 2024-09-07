@@ -39,13 +39,13 @@
   %}
     {% block nav_items %}
       {% for item in links %}
-        <li{{ item.attributes.addClass('nav-item') }}>
+        <li{{ item.attributes.addClass('nav-item', 'col-6', 'p-0') }}> <!-- Added 'col-6' and 'p-0' for Bootstrap layout -->
           {%- if item.link -%}
-            <span{{ item.link.text_attributes.addClass('nav-link') }}>{{ item.link }}</span>
+            <span{{ item.link.text_attributes.addClass('nav-link', 'text-center') }}>{{ item.link }}</span> <!-- Added 'text-center' for centering text -->
           {%- elseif item.text_attributes -%}
-            <span{{ item.text_attributes.addClass('nav-link') }}>{{ item.text }}</span>
+            <span{{ item.text_attributes.addClass('nav-link', 'text-center') }}>{{ item.text }}</span>
           {%- else -%}
-            <span class="nav-link">{{ item.text }}</span>
+            <span class="nav-link text-center">{{ item.text }}</span>
           {%- endif -%}
         </li>
       {% endfor %}
