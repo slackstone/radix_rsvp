@@ -11,7 +11,14 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs2" />
+     id="defs2">
+    <rect
+       x="132"
+       y="21"
+       width="307"
+       height="25"
+       id="rect4" />
+  </defs>
   <sodipodi:namedview
      id="namedview2"
      pagecolor="#ffffff"
@@ -22,12 +29,12 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="1"
-     inkscape:cx="250"
+     inkscape:cx="249.5"
      inkscape:cy="50"
      inkscape:window-width="1200"
      inkscape:window-height="987"
-     inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-x="716"
+     inkscape:window-y="53"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg2" />
   <style
@@ -50,7 +57,9 @@
      class="bold-text"
      fill="#000000"
      id="text1"
-     style="stroke-width:1.09658">Edmunds, Vermont</text>
+     style="stroke-width:1.09658"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'Work Sans', sans-serif;-inkscape-font-specification:'Work Sans, sans-serif Medium';fill:#426431;fill-opacity:1"
+       id="tspan1">Edmunds, Vermont</tspan></text>
   <!-- Regular Sub-site Tagline -->
   <text
      x="9.7786694"
@@ -59,7 +68,7 @@
      class="regular-text"
      fill="#000000"
      id="text2"
-     style="stroke-width:1.39523">Village of Streeter Falls</text>
+     style="stroke-width:1.39523;-inkscape-font-specification:'Work Sans, sans-serif Light';font-family:'Work Sans', sans-serif;font-weight:300;font-style:normal;font-stretch:normal;font-variant:normal">Village of Streeter Falls</text>
   <text
      x="9.7786694"
      y="40.300499"
@@ -68,4 +77,8 @@
      fill="#000000"
      id="text3"
      style="stroke-width:1.39523">Town of</text>
+  <text
+     xml:space="preserve"
+     id="text4"
+     style="fill:#c7ddbe;text-orientation:auto;-inkscape-font-specification:'Work Sans, sans-serif Medium';font-family:'Work Sans', sans-serif;font-weight:500;stroke:#404040;text-align:start;writing-mode:lr-tb;direction:ltr;font-style:normal;font-stretch:normal;font-variant:normal;white-space:pre;shape-inside:url(#rect4)" />
 </svg>
