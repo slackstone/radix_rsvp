@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Template for Navbar component.
+ */
+#}
+{% apply spaceless %}
+{# Ensure attributes are properly set #}
+{% set nav_attributes = nav_attributes ?: create_attribute() %}
+{% set navbar_container_attributes = navbar_container_attributes ?: create_attribute() %}
+{% set placement = placement ?? 'sticky-top' %}
+{% set navbar_expand = navbar_expand ?? 'lg' %}
+{% set navbar_theme = navbar_theme ?? null %}
+
+{# Define container classes for the navbar #}
+{% set navbar_container_classes = [
+  navbar_container_type ? 'container-' ~ navbar_container_type : 'container',
+]|merge(navbar_container_utility_classes ?: []) %}
+
+{# Define navbar classes #}
+{% set nav_classes = [
+  'navbar',
+  navbar_expand ? 'navbar-expand-' ~ navbar_expand : '',
+  placement,
+]|merge(navbar_utility_classes ?: []) %}
+
+{# Optionally set the Bootstrap theme attribute #}
+{% if navbar_theme %}
+  {% set nav_attributes = nav_attributes.setAttribute('data-bs-theme', navbar_theme) %}
+{% endif %}
+<nav {{ nav_attributes.addClass(nav_classes).addClass('custom-navbar') }}>
+  <div {{ navbar_container_attributes.addClass(navbar_container_classes) }}>
+    <!-- Navbar Toggler -->
+    {% block navbar_toggler %}
+      <button class="navbar-toggler d-block d-lg-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
+ aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+LOGO-2600
+      </button>
+<button id="navbar-toggler" class="navbar-toggler d-block d-lg-none d-flex align-items-center" type="button" data-bs-toggle="collapse" 
+data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-text me-2">Menu</span>
+  <span class="navbar-toggler-icon"></span>
+</button>
+    {% endblock %}
+    <div id="navbar-menu" class="navbar-collapse collapse">
+      {% block menu_content %}
+        <div class="navbar-nav me-auto">
+          {% if navbar_menu %}
+<br.
+You are here: components/navbar/navbar.twig
+<br>  
+            {{ navbar_menu|raw }}
+          {% else %}
+            <!-- Optionally remove fallback message for production -->
+            <p class="no-menu-warning">No menu assigned!</p>
+          {% endif %}
+        </div>
+      {% endblock %}
+    </div>
+  </div>
+</nav>
+
+
+{% endapply %}

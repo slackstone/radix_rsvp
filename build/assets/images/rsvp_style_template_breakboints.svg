@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1200"
+   height="1200"
+   viewBox="0 0 317.49996 317.49996"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4-beta2 (9aaf4f34, 2024-07-30)"
+   sodipodi:docname="rsvp_style_template_breakboints.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="576.99913"
+     inkscape:cy="594.6768"
+     inkscape:window-width="2048"
+     inkscape:window-height="978"
+     inkscape:window-x="198"
+     inkscape:window-y="29"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     showguides="true">
+    <sodipodi:guide
+       position="158.74998,351.63121"
+       orientation="1,0"
+       id="guide8"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="270.90436,400.19314"
+       orientation="1,0"
+       id="guide9"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="17.197914,327.81871"
+       orientation="1,0"
+       id="guide10"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="203.17827,386.34858"
+       orientation="1,0"
+       id="guide3"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient12"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#666666;stop-opacity:1;"
+         offset="0"
+         id="stop12" />
+      <stop
+         style="stop-color:#666666;stop-opacity:0;"
+         offset="1"
+         id="stop13" />
+    </linearGradient>
+    <rect
+       x="91.524384"
+       y="417.24353"
+       width="522.22736"
+       height="69.989235"
+       id="rect3" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient12"
+       id="linearGradient13"
+       x1="77.108643"
+       y1="110.50183"
+       x2="107.00221"
+       y2="132.55208"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(106.72283,0.50114208)" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-weight:250;font-size:3.175px;font-family:'Work Sans';-inkscape-font-specification:'Work Sans weight=250';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#b3ff80;stroke:#404040;stroke-width:0.264583"
+       x="49.499996"
+       y="81.906471"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="stroke-width:0.264583"
+         x="49.499996"
+         y="81.906471" /></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text3"
+       style="font-weight:250;font-family:'Work Sans';-inkscape-font-specification:'Work Sans weight=250';text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect3);display:inline;fill:#b3ff80;stroke:#404040" />
+    <rect
+       style="fill:#1a1a1a;stroke:#404040;stroke-width:0.223233"
+       id="rect10"
+       width="316.5426"
+       height="47.66634"
+       x="0.67126948"
+       y="5.2709913" />
+    <rect
+       style="fill:#b3b3b3;stroke:#404040;stroke-width:0.224978"
+       id="rect11"
+       width="262.22928"
+       height="47.6646"
+       x="8.7114477"
+       y="5.2718639" />
+    <rect
+       style="fill:#ffffff;stroke:#404040;stroke-width:0.18141"
+       id="rect12"
+       width="146.39034"
+       height="47.708168"
+       x="12.393828"
+       y="5.2500725" />
+    <text
+       xml:space="preserve"
+       style="font-weight:250;font-size:13.2567px;font-family:'Work Sans';-inkscape-font-specification:'Work Sans weight=250';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#b3ff80;stroke:#404040;stroke-width:1.10473"
+       x="16.324093"
+       y="17.30274"
+       id="text1"
+       transform="scale(0.99916989,1.0008308)"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="stroke-width:1.10473"
+         x="16.324093"
+         y="17.30274">Mobile</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:250;font-size:13.2567px;font-family:'Work Sans';-inkscape-font-specification:'Work Sans weight=250';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#b3ff80;stroke:#404040;stroke-width:1.10473"
+       x="17.118488"
+       y="33.428917"
+       id="text9"
+       transform="scale(0.99916989,1.0008308)"><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         style="stroke-width:1.10473"
+         x="17.118488"
+         y="33.428917">Tablet</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:250;font-size:13.2567px;font-family:'Work Sans';-inkscape-font-specification:'Work Sans weight=250';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#b3ff80;stroke:#404040;stroke-width:1.10473"
+       x="15.794477"
+       y="47.968925"
+       id="text10"
+       transform="scale(0.99916989,1.0008308)"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         style="stroke-width:1.10473"
+         x="15.794477"
+         y="47.968925">Desktop</tspan></text>
+    <g
+       id="g13"
+       transform="translate(-125.1479,-9.2604151)">
+      <rect
+         style="fill:#cccccc;stroke:#404040;stroke-width:0.355202"
+         id="rect13"
+         width="79.28437"
+         height="36.951042"
+         x="198.21819"
+         y="21.476553" />
+      <text
+         xml:space="preserve"
+         style="font-weight:250;font-size:4.25343px;font-family:'Work Sans';-inkscape-font-specification:'Work Sans weight=250';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:url(#linearGradient13);fill-opacity:1;stroke:#404040;stroke-width:0.354452"
+         x="215.36617"
+         y="30.678797"
+         id="text5"
+         transform="scale(0.94704028,1.0559213)"><tspan
+           sodipodi:role="line"
+           id="tspan5"
+           style="fill:url(#linearGradient13);fill-opacity:1;stroke-width:0.354452"
+           x="215.36617"
+           y="30.678797">Mobile max-width: 599</tspan><tspan
+           sodipodi:role="line"
+           style="fill:url(#linearGradient13);fill-opacity:1;stroke-width:0.354452"
+           x="215.36617"
+           y="35.995583"
+           id="tspan7">Tablet min-width: 600 max-width: 1024</tspan><tspan
+           sodipodi:role="line"
+           style="fill:url(#linearGradient13);fill-opacity:1;stroke-width:0.354452"
+           x="215.36617"
+           y="41.31237"
+           id="tspan8">Desktop min-width: 1024</tspan><tspan
+           sodipodi:role="line"
+           style="fill:url(#linearGradient13);fill-opacity:1;stroke-width:0.354452"
+           x="215.36617"
+           y="46.629158"
+           id="tspan3">Hamburger Menu @ 768</tspan><tspan
+           sodipodi:role="line"
+           style="fill:url(#linearGradient13);fill-opacity:1;stroke-width:0.354452"
+           x="215.36617"
+           y="51.945946"
+           id="tspan6"> </tspan></text>
+    </g>
+    <path
+       style="fill:#00ccff;stroke:#0c92f0;stroke-width:0.529167;stroke-dasharray:none;stroke-opacity:1"
+       d="m 152.49352,21.849444 h 6.40405"
+       id="path13"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#00ccff;stroke:#0c92f0;stroke-width:0.642245;stroke-dasharray:none;stroke-opacity:1"
+       d="M 159.39055,27.158536 H 271.24698"
+       id="path14"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#00ccff;stroke:#0c92f0;stroke-width:0.60071;stroke-dasharray:none;stroke-opacity:1"
+       d="M 152.26513,33.948053 H 317.63158"
+       id="path15"
+       sodipodi:nodetypes="cc" />
+    <rect
+       style="fill:#1a1a1a;stroke:none;stroke-width:1.3886;stroke-dasharray:none"
+       id="rect4"
+       width="202.69302"
+       height="12.985128"
+       x="0.80389011"
+       y="53.562889" />
+    <text
+       xml:space="preserve"
+       style="font-weight:250;font-size:5.61858px;font-family:'Work Sans';-inkscape-font-specification:'Work Sans weight=250';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#1a1a1a;stroke:#000000;stroke-width:0.468214;stroke-opacity:1"
+       x="32.281349"
+       y="74.000252"
+       id="text4"
+       transform="scale(0.89235599,1.120629)"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="fill:#1a1a1a;stroke:#000000;stroke-width:0.468214;stroke-opacity:1"
+         x="32.281349"
+         y="74.000252">https://fonts.google.com/specimen/Work+Sans</tspan></text>
+    <rect
+       style="fill:#f9f9f9;stroke:none;stroke-width:0.529167;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5"
+       width="7.4835458"
+       height="7.4835458"
+       x="192.32713"
+       y="56.500767" />
+    <text
+       xml:space="preserve"
+       style="font-weight:250;font-size:6.6385px;font-family:'Work Sans';-inkscape-font-specification:'Work Sans weight=250';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#f9f9f9;stroke:none;stroke-width:1.10641;stroke-dasharray:none;stroke-opacity:1"
+       x="182.95509"
+       y="58.167324"
+       id="text11"
+       transform="scale(0.93705921,1.0671684)"><tspan
+         sodipodi:role="line"
+         id="tspan11"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'Work Sans';-inkscape-font-specification:'Work Sans Semi-Bold';stroke-width:1.10641"
+         x="182.95509"
+         y="58.167324">MENU</tspan></text>
+  </g>
+</svg>

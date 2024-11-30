@@ -1,29 +1,31 @@
-// Bootstrap
-// -----------------------------------------------------------------------------
+// Import Variables First
+@import 'base/variables';
+
 @import 'init';
 @import 'bootstrap';
 @import 'bootswatch';
-// Parent Drupal related components
-// -----------------------------------------------------------------------------
 @import '../../components/offcanvas/offcanvas';
 @import "base/elements";
 @import "base/functions";
 @import "base/helpers";
 @import "base/typography";
+@import 'mime-icons';
+@import 'navbar';
 
 
 // Variables for color palette
 $background-color: #ffffff;
 $nav-link-color: #ffffff;
-$nav-link-hover:#brun watch7fd6e;
+$nav-link-hover:#b7fd6e;
 $black: #000000;
 $white: #ffffff;
 $primary-color: #26242e; //grey
 $secondary-color: #3a0e34;
 $accent-color: #f9fafd;
 $text-color: #141313; // White
-$link-color: #3a0e34; // Tan
-$button-color: #3a0e34;;
+$link-color: #007633; // VT Green
+$link-color-hover: #020c01; // VT Green
+$button-color: #3a0e34;
 
 // Body and general page styles
 body {
@@ -50,7 +52,7 @@ main {
 
 footer {
   position: relative;
-  background-color: #3f6688;
+  background-color: #183043;
   color: white;
   z-index: 20;
 }
@@ -66,12 +68,17 @@ h1, h2, h3, h4, h5, h6 {
   color: $primary-color;
 }
 
+footer h2 {
+  color: #00b6ed;
+}
+
 // Links
 a {
   color: $link-color;
   text-decoration: none;
 
   &:hover {
+    color: $link-color-hover;
     text-decoration: underline;
   }
 }
@@ -97,61 +104,65 @@ button, .button {
   margin-bottom: 20px;
 }
 
+.ckeditor-accordion-toggler {
+  background-color: #211711;
+}
+
+.ckeditor-accordion-container > dl dt > a,
+.ckeditor-accordion-container > dl dt > a:not(.button) {
+  display: block;
+  padding: 10px 15px 10px 50px;
+  background-color: #211711;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: background-color 300ms;
+  transition: background-color 300ms;
+  border-bottom: 1px solid #00a4ec;
+}
+
+
+
 // Accent elements (e.g., borders, small details)
 .accent {
   border-color: $accent-color;
   color: $accent-color;
 }
 
-// Navbar styles
-@include media-breakpoint-down(lg) {
-  .navbar .container {
-    max-width: none; // Unset the max-width
-    width: 100%; // Ensure full width
-    padding: 0; // Optional: Remove padding
-  }
-.navbar .container ul {
-    padding: 0;
-    background: white;
-  }
+.container {
+max-width: none;
 }
 
-.navbar {
-  background-color: $white;
-  // Define a custom property (CSS variable)
-  --bs-navbar-toggler-border-radius: 0;
+#rsvp_alert {
+  position: relative; /* Normal flow for scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #8DD0F9;
+  color: #B85A2C; /* Dark complementary text color */
+  padding: 10px;
+  text-align: center;
+  z-index: 9999;
+}
 
-  .navbar-brand {
-    color: $primary-color;
-    &:hover {
-      color: lighten($nav-link-color, 10%);
-    }
-  }
-  .navbar-nav {
-    .nav-link, .nav-link a {
-      color: $black;
-      &:hover {
-        color: $nav-link-hover;
-      }
-    }
-    .active > .nav-link {
-      color: $nav-link-hover;
-      background-color: $primary-color;
-    }
-  }
-  .navbar-toggler {
-    background-color: grey;
-    border-color: $accent-color;
-    &:hover {
-      background-color: grey;
-    }
-  }
+
+
+/* Mobile StyleFrom Here Down */
+
+@include media-breakpoint-down(lg) {
+
+.block--radix-rsvp-main-menu {
+    background-color: #211711;
+    display: block;
+    margin: 0 auto;      /* Center the block within its container */
+    width: 100%;         /* Ensure the block takes up full width until it hits the max-width */
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
 }
 
 .navbar-toggler-icon {
-  display: inline-block;
-  width: 32px; /* Adjusted width */
-  height: 32px; /* Adjusted height */
+  display: block;
   vertical-align: middle;
   background-image: none; /* Remove background image */
   background-repeat: no-repeat;
@@ -194,28 +205,210 @@ button, .button {
   }
 }
 
-// Set Logo dimension
+#rsvp_alert {
+  position: relative; /* Normal flow for scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #8DD0F9;
+  color: #B85A2C; /* Dark complementary text color */
+  padding: 10px;
+  text-align: center;
+  z-index: 9999;
+}
+
+#rsvp_site_name_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky; /* Make it sticky */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 1000; /* Ensure it stays above other content */
+  min-height: 65px;
+}
+
+#rsvp_site_name_default, #rsvp_site_name_invert {
+  position: absolute; /* Allow them to overlap */
+  transition: opacity 0.5s ease-in-out;
+}
+
+#rsvp_site_name_default {
+  opacity: 1;
+}
+
+#rsvp_site_name_invert {
+  opacity: 0;
+}
+
+.sticky-container {
+  position: sticky; /* Initial relative position */
+  z-index: 10;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.sticky-active {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: white !important;
+  transition: all 0.3s ease; /* Smooth transition */
+  background-color: white;
+  border-bottom: 1px solid black;
+}
+
+/* Initial state of the sticky header */
+#sticky-header {
+    position: sticky;
+    background-color: rgba(0, 0, 0, 0.4); /* 80% black background */
+    transition: background-color 0.5s ease;
+    backdrop-filter: blur(10px); /* Adjust the blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid black;
+}
+#rsvp_logo_default, #rsvp_logo_invert {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  width: 100%; /* Ensure they take up the full width of the parent */
+  height: auto;
+}
+
+#rsvp_logo_invert {
+  opacity: 0;
+}
+
+.logo-container {
+  position: relative;
+  display: block;
+  min-height: 200px;
+  height: auto; /* Adjust height if needed */
+}
+
+/* Ensure both logos overlap perfectly */
+.logo-container picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure the logo fits the container */
+  height: auto;
+  transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+/* Center the two elements inside the wrapper */
+.center-wrapper {
+  display: flex; /* Allows the pictures to align side by side */
+  justify-content: center; /* Center both pictures horizontally */
+  align-items: center; /* Center the pictures vertically */
+  gap: 10px; /* Space between the two picture elements */
+}
+
+#rsvp_logo_image {
+  max-width: 100px; /* Adjust this value as needed */
+  margin-right: 15px; /* Add spacing between the logo and the site name */
+}
+
+#rsvp_logo_text_image {
+  width: 100%;
+  height: auto;
+}
+
+/* Mobile Settings */
+@media (max-width: 599px) {
+  /* Adjust site name container image */
+  .site-name-container picture {
+    max-width: 80%;
+  }
+
+  /* Logo images in the default and invert containers */
+  #rsvp_logo_default img, #rsvp_logo_invert img {
+    max-width: 100px;
+  }
+
+  /* Logo and site name container styling for mobile */
+  .logo-container {
+    min-height: 100px; /* Mobile min-height */
+    text-align: center;
+  }
+
+  .site-name-container {
+    text-align: center;
+  }
+}
+
+/* Tablet Settings */
+@media (min-width: 600px) and (max-width: 1024px) {
+  /* Adjust site name container image */
+  .site-name-container picture {
+    max-width: 500px;
+  }
+
+  /* Logo images in the default and invert containers */
+  #rsvp_logo_default img, #rsvp_logo_invert img {
+    max-width: 150px;
+  }
+
+  #rsvp_site_name_container img {
+    border: 1px solid yellow;
+    max-width: 500px;
+  }
+
+  /* Logo and site name container styling for tablet */
+  .logo-container {
+    min-height: 150px; /* Tablet min-height */
+    text-align: center;
+  }
+
+  .site-name-container {
+    text-align: center;
+  }
+}
+
+/* Desktop Settings */
+@media (min-width: 1025px) {
+  /* Adjust site name container image */
+
+  .site-name-container picture {
+    max-width: 600px;
+  }
+
+  /* Logo images in the default and invert containers */
+  #rsvp_logo_default img, #rsvp_logo_invert img {
+    max-width: 200px;
+  }
+
+  /* Logo and site name container styling for desktop */
+  .logo-container {
+    min-height: 200px; /* Desktop min-height */
+    text-align: right;
+  }
+
+  .site-name-container {
+    text-align: left;
+  }
+}
+
 .navbar-brand__logo img {
   min-width: 230px;
   min-height: 35px;
 }
 
-// Extracted Olivero menu styles
+// Extracted menu styles
 .header {
   position: relative;
   z-index: 30;
 }
 
-/* Default main-content background */
 #main-content {
   background-color: white;
   transition: background-color 0.3s;
 }
 
-/* Scrolled main-content background */
-#main-content.content-scrolled {
-  background-color: black;
-  color: white; /* Optional: Adjust text color as well */
+.swiper-button-next,.swiper-button-prev {
+  color: white !important;
+}
+
+#main-content .nav-item a {
+color: black;
 }
 
 .navbar {
@@ -258,25 +451,30 @@ button, .button {
     transition: width 0.3s ease, left 0.3s ease;
 }
 
-/* Initial state */
-.navbar {
-  background-color: #859C7F;
-  z-index: 88;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+.branding-wrapper {
+  background-color: #211711;
+  display: flex; /* Enable Flexbox */
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+}
+/* Background color when scrolled */
+.branding-wrapper.scrolled {
+  background-color: yellow; /* Change to desired color when scrolled */
 }
 
-/* State when the navbar is triggered by the scroll */
-.navbar.scrolled {
-  background-color: white !important; /* Solid  background */
-  z-index: 89 !important; /* Higher z-index when scrolled */
+/* Initial state */
+.navbar {
+  background-color: #211711;
+  display: flex; /* Use flexbox for alignment */
+  justify-content: flex-end;
+  z-index: 88;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
 /* Additional styles you want to toggle on scroll */
 .navbar.scrolled .navbar-brand__logo {
   transform: scale(1.1); /* Example of scaling another element inside navbar */
 }
-
-
 
 .navbar .navbar-nav .nav-link:hover::before {
     width: 100%;
@@ -295,9 +493,9 @@ button, .button {
 }
 
 .navbar-toggler {
-  background-color: #C19A6B; // Button color
+  background-color: #362e27; // Button color
   border: none;
-  color: #FFFFFF; // White
+  color: #FFB347;
 }
 
 .navbar-toggler:hover {
@@ -333,7 +531,6 @@ button, .button {
 .is-active {
   display: block;
 }
-
 
 /* Base styles for the menu */
 .menu-wrapper {
@@ -426,213 +623,138 @@ body.menu-open {
 .navbar a,
 .navbar .navbar-brand,
 .navbar .navbar-nav .nav-link {
-    font-family: 'metropolis', sans-serif;
-    font-weight: 700;
+/*    font-family: 'metropolis', sans-serif; */
+    font-family: 'Work-Sans', sans-serif; /* Change from 'metropolis' to 'Work-Sans' */
+    font-weight: 600;
 }
 // Frontpage Hero Inversion
 body.path-frontpage .nav-link {
-color: #859c7f !important;
+color: white !important;
 }
 
 // Front page scrolled state
 body.path-frontpage .nav-link {
   color: brown; // Black text when scrolled on the front page
 }
+    /* Apply fixed navbar styling only on the front page */
+    body .navbar {
+      position: sticky;
+      top: 0px;
+      width: 100%;
+      transition: background-color 0.3s ease, z-index 0.3s ease, backdrop-filter 0.3s ease;
+      width: 100%;
+      z-index: 30;
+      background-color: #362e27;
+      backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
+      z-index: 88; /* Default z-index */
+      transition: background-color 0.3s ease, z-index 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for visual separation */
+      border-bottom: 1px solid rgba(77, 59, 46, 0.5);
+    }
+    body.path-frontpage .toolbar-bar {
+      position: fixed;
+      width: 100%;
+      z-index: 1000; /* Ensure it stays on top */
+    }
+    /* Splash Image Container */
+    .splash-image-container {
+      position: relative;
+      width: 100%;
+      height: 100vh; /* Full viewport height */
+      overflow: hidden; /* Hide overflow */
+    }
+    .splash-image-container .bg-img {
+      position: fixed; /* Fix the background image */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensure the image covers the entire container */
+      z-index: -1; /* Ensure the image is behind other content */
+    }
+    /* Keep the splash content fixed */
+    .splash-content {
+      position: fixed;
+      top: 50%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      color: white;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.7); /* 50% transparent coffee */
+      border: 1px solid rgba(77, 59, 46, 0.5);
+      border-radius: 10px; /* Adjust the value for more or less rounded edges */
+      padding: 3%;
+      max-width: 400px;
+    }
+    /* Body text that scrolls over the splash content */
+    body.path-frontpage {
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    /* Fixed Bar at the Bottom */
+    #splash--scroller {
+      position: fixed;
+      bottom: 0;
+      padding: 10px;
+      width: 100%; /* Full width */
+      background-color: #859c7f;
+      padding: 7px 0 8px;
+      text-align: center; /* Center the text */
+      color: black; /* Text color */
+      box-shadow: 0 -20px 60px rgba(0, 0, 0, .4);
+      z-index: 15; /* Ensure it's above other elements */
+    }
 
-/* Apply fixed navbar styling only on the front page */
-body.path-frontpage .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 30;
-  // background-color: rgba(0, 0, 0, 0.5); /* 50% transparent black */
-  // Let's go Coffee
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
-  z-index: 88; /* Default z-index */
-  transition: background-color 0.3s ease, z-index 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for visual separation */
-  border-bottom: 1px solid rgba(77, 59, 46, 0.5);
-}
-body.path-frontpage .toolbar-bar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000; /* Ensure it stays on top */
-}
+    /* Link Style inside the Fixed Bar */
+    #splash--scroller a {
+      text-decoration: none;
+      font-weight: bold;
+      color: black;
+      font-size: 1.2rem; 
+    } 
+    #splash--scroller a:hover {
+      color: white;
+    }
 
-/* Splash Image Container */
-.splash-image-container {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* Full viewport height */
-  overflow: hidden; /* Hide overflow */
-}
-
-.splash-image-container .bg-img {
-  position: fixed; /* Fix the background image */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure the image covers the entire container */
-  z-index: -1; /* Ensure the image is behind other content */
-}
-
-/* Keep the splash content fixed */
-.splash-content {
-  position: fixed;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Offset for perfect centering */
-  z-index: 10; /* Ensure the content is above other elements */
-  color: white; /* Adjust based on your design */
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.7); /* 50% transparent coffee */
-  border: 1px solid rgba(77, 59, 46, 0.5);
-  border-radius: 10px; /* Adjust the value for more or less rounded edges */
-  padding: 3%;
-  max-width: 400px;
-}
-
-/* Body text that scrolls over the splash content */
-body.path-frontpage {
-  padding-top: 100vh; /* Push the main content below the splash section */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-/* Fixed Bar at the Bottom */
-#splash--scroller {
-  position: fixed;
-  bottom: 0;
-  width: 100%; /* Full width */
-  background-color: #859c7f;
-  padding: 7px 0 8px;
-  text-align: center; /* Center the text */
-  color: black; /* Text color */
-  box-shadow: 0 -20px 60px rgba(0, 0, 0, .4);
-  z-index: 15; /* Ensure it's above other elements */
-}
-
-/* Link Style inside the Fixed Bar */
-#splash--scroller a {
-  text-decoration: none;
-  font-weight: bold;
-  color: black;
-  font-size: 1.2rem; /* Adjust size as needed */
-}
-
-#splash--scroller a:hover {
-  color: #white; /* Hover effect */
-}
-@media (max-width: 992px) {
-  .navbar-nav {
-    display: flex;
-    flex-wrap: wrap; /* Allows items to wrap */
-    flex-direction: row-reverse;
-    padding-left: 0;
-    list-style: none;
-    justify-content: space-between; /* Spread items evenly */
+  /* Optional: smooth transition for showing/hiding the dropdown */
+  .dropdown-menu {
+    display: none; /* Hide the dropdown by default */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease; /* Smooth transition for the opacity */
   }
 
-  .navbar-nav .nav-item {
-    flex: 0 0 50%; /* Make each item take 50% of the width */
-    max-width: 50%; /* Ensure it doesn't go over 50% */
-    box-sizing: border-box; /* Ensure padding and borders don't affect width */
-    display: flex;
-    justify-content: center; /* Center the text horizontally */
-    align-items: center; /* Center the text vertically */
-  }
-
-/* For the submenu under a parent item */
-  ul.dropdown-menu.show {
-    position: absolute; /* Ensure it's positioned correctly beneath the parent */
-    width: 100%; /* Take up 100% of the parent width */
-    top: 100%; /* Position the submenu directly below the parent */
-    left: 0; /* Align the submenu with the parent */
-    border: 1px solid red; /* Just to visualize the submenu's boundary */
-    background-color: white; /* Ensure submenu has a background */
-    z-index: 9999; /* Make sure the submenu is on top of other elements */
- }
-
-/* Adjust the submenu list items to ensure they display correctly */
-  ul.dropdown-menu.show .dropdown-item {
-    padding: 10px;
-    width: 100%; /* Make sure each submenu item takes up full width */
-    text-align: left; /* Align the text as desired */
-  }
-
-  .navbar-nav .nav-link {
+  .block-system-branding-block {
     display: block;
-    width: 100%; /* Ensure the link takes the full width of the parent */
-    text-align: center; /* Center the text */
-    padding: 1rem; /* Adjust padding to suit your design */
+    background: #362e27;
   }
-}
 
-/* Hide the "custom" block below LG screen size */
-.custom-block-above-lg {
-  display: block;
-}
-
-.custom-block-below-lg {
-  display: none;
-}
-
-/* show the custom sub-menu */
-@media (max-width: 991px) { /* This is the Bootstrap LG breakpoint (992px) */
-  /* Show the block below LG screen size */
-  .custom-block-above-lg {
-    display: none;
+  /* Boostrap Overrides */
+  .ui-visual-focus {
+	box-shadow: 0 0 3px 1px rgb(94, 158, 214);
   }
-  .custom-block-below-lg {
-    display: block;
+  .ui-state-active,
+  .ui-widget-content .ui-state-active,
+  .ui-widget-header .ui-state-active,
+  a.ui-button:active,
+  .ui-button:active,
+  .ui-button.ui-state-active:hover {
+	border: 1px solid #003eff/*{borderColorActive}*/;
+	background: #3f6688;
+	font-weight: normal/*{fwDefault}*/;
+	color: #ffffff/*{fcActive}*/;
   }
-}
-
-/* Have the sub-menu go full width */
-ul.dropdown-menu.show {
-border: 1px solid black;
-}
-
-.navbar-collapse.collapse.show {
-background: white;
-}
-
-.dropdown-item {
-background: grey;
-}
-
-
-/* Target the dropdown element on hover */
-.navbar-nav .dropdown:hover > .dropdown-menu {
-  display: block; /* Show the dropdown when hovering over the parent */
-  visibility: visible; /* Ensure the dropdown is visible */
-  opacity: 1; /* Make sure the dropdown is fully opaque */
-}
-
-/* Optional: smooth transition for showing/hiding the dropdown */
-.dropdown-menu {
-  display: none; /* Hide the dropdown by default */
-  opacity: 0; /* Start hidden */
-  transition: opacity 0.3s ease; /* Smooth transition for the opacity */
-}
-
-.dropdown:hover > .dropdown-menu {
-  display: block; /* Show the dropdown on hover */
-  opacity: 1; /* Set opacity to fully visible */
-}
-
-/* Fixes to ensure the dropdown aligns correctly */
-ul.navbar-nav .dropdown-menu {
-  position: absolute;
-  top: 100%; /* Ensure the dropdown appears below the parent */
-  left: 0; /* Align with the left side of the parent */
-  width: 100%; /* Make sure the dropdown takes up full width if needed */
-}
-
-branding-wrapper {
-  display: block;
-  min-width: 300px;
+  .ui-icon-background,
+  .ui-state-active .ui-icon-background {
+	border: #003eff/*{borderColorActive}*/;
+	background-color: #ffffff/*{fcActive}*/;
+  }
+  .ui-state-active a,
+  .ui-state-active a:link,
+  .ui-state-active a:visited {
+	color: #ffffff/*{fcActive}*/;
+	text-decoration: none;
+  }
+  #wall-calendar {
+    min-height: 600px; /* or any value that fits your design */
+  }
 }

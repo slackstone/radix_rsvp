@@ -15,6 +15,23 @@
  * $body-color: $gray-100;
  */
 
+
+// Variables for color palette
+$background-color: #ffffff;
+$nav-link-color: #ffffff;
+$nav-link-hover:#b7fd6e;
+$black: #000000;
+$white: #ffffff;
+$primary-color: #26242e; //grey
+$secondary-color: #3a0e34;
+$accent-color: #f9fafd;
+$text-color: #141313; // White
+$link-color: #007633; // VT Green
+$link-color-hover: #020c01; // VT Green
+$button-color: #3a0e34;
+
+
+
 // Flatly 5.3.3
 // Bootswatch
 
@@ -130,7 +147,6 @@ $breadcrumb-padding-x:              .75rem !default;
 $breadcrumb-border-radius:          .25rem !default;
 
 // Close
-
 $btn-close-color:            $white !default;
 $btn-close-opacity:          .4 !default;
 $btn-close-hover-opacity:    1 !default;

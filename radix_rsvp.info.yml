@@ -20,8 +20,14 @@ regions:
   content: Content
   page_bottom: 'Page bottom'
   footer: Footer
+
+twig_namespaces:
+  radix_rsvp: 'themes/custom/radix_house_theme/components'
+
 libraries:
   - radix_rsvp/style
+  - radix_house_theme/fontawesome
 ckeditor5-stylesheets:
   - build/css/main.style.css
 generator: 'radix_starterkit:1.0.0'
+

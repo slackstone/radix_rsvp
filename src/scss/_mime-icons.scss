@@ -1,0 +1,34 @@
+// File: _mime-icons.scss
+
+// General file styling
+.file {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+// MIME type icons
+.file--application-pdf::before {
+  content: url('../icons/pdf-icon.png') !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.file--mime-application-msword::before {
+  content: url('../icons/word-icon.png');
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.file--mime-application-vnd.ms-excel::before {
+  content: url('../icons/excel-icon.png');
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// Default icon (fallback)
+.file::before {
+  content: url('../icons/default-icon.png');
+  display: inline-block;
+  vertical-align: middle;
+}

@@ -1,0 +1,27 @@
+.navbar {
+  background-color: purple;
+  position: sticky;
+  top: 0;
+  z-index: $zindex-fixed + 1; 
+  // Define a custom property (CSS variable)
+  --bs-navbar-toggler-border-radius: 0;
+
+  .navbar-brand {
+    color: $primary-color;
+    &:hover {
+      color: lighten($nav-link-color, 10%);
+    }
+  }
+  .navbar-nav {
+    .nav-link, .nav-link a {
+      color: white;
+      &:hover {
+        color: $nav-link-hover;
+      }
+    }
+    .active > .nav-link {
+      color: $nav-link-hover;
+      background-color: $primary-color;
+    }
+  }
+}

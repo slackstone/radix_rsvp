@@ -4,9 +4,13 @@ style:
     theme:
       build/css/main.style.css: {  }
       https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap: {}
+      fontawesome/css/all.min.css: {}
   js:
     build/js/main.script.js: {  }
     src/js/navigation.js: {}
+    src/js/menu.js: {}
+    src/js/fullcalendar-fix.js: {}
+    fontawesome/js/all.min.js: {}
   dependencies:
     - core/drupal
     - core/jquery

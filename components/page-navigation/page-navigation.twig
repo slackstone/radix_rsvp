@@ -1,0 +1,58 @@
+{#
+/**
+ * @file
+ * Template for a Page Navigation component.
+ *
+#}
+
+<div style="color: red;">DEBUG: Custom Page Navigation Loaded</div>
+
+
+{% apply spaceless %}
+
+{%
+  embed 'radix:navbar' with {
+    container: 'fixed',
+    navbar_theme: 'light-foobar-2600',
+    navbar_utility_classes: [
+      'justify-content-between',
+    ],
+  }
+%}
+
+{% block branding %}
+  {% if page.navbar_branding %}
+ <p>DEBUG 2600: Branding is HITTING</p>
+    {{ page.navbar_branding }}
+  {% else %}
+    <p>DEBUG 2600: Branding is empty</p>
+  {% endif %}
+{% endblock %}
+
+{% block left %}
+  <div class="debug-left">DEBUG: {{ dump(page.navbar_left) }}</div>
+  {% if page.navbar_left %}
+    <div class="me-auto">
+      FOOBAR999999
+      {{ page.navbar_left }}
+    </div>
+  {% else %}
+    <p>DEBUG: Navbar Left is empty.</p>
+  {% endif %}
+{% endblock %}
+
+{% block right %}
+  <div class="debug-right">DEBUG: {{ dump(page.navbar_right) }}</div>
+  {% if page.navbar_right %}
+    <div class="ms-auto">
+      FOOBAR777777777
+      {{ page.navbar_right }}
+    </div>
+  {% else %}
+    <p>DEBUG: Navbar Right is empty.</p>
+  {% endif %}
+{% endblock %}
+
+
+{% endembed %}
+{% endapply %}

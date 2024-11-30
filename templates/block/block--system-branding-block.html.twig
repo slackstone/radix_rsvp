@@ -18,23 +18,34 @@
   embed 'radix:block' with {
     block_utility_classes: [
       'block--system-branding',
+      'd-flex',
+      'align-items-center',
     ],
   }
 %}
-{% block block_content %}
-    <div class="branding-wrapper">
-      <a href="{{ path('<front>') }}" class="navbar-brand d-inline-flex align-items-center">
-<img src="/themes/custom/radix_house_theme/images/Example_Logo_200.png" alt="{{ site_name }}" width="100px" height="100px" />
-        {% if is_front %}
-          <!-- Front page: Light logo initially -->
-          <img src="/themes/custom/radix_house_theme/images/light_logo_text.svg" alt="{{ site_name }} logo" id="default-logo" class="logo-image" style=" min-width: 300px;">
-          <img src="/themes/custom/radix_house_theme/images/dark_logo_text.svg" alt="{{ site_name }} alternative logo" id="alternative-logo" class="logo-image" style="display: none; min-width: 300px;">
-        {% else %}
-          <!-- Other pages: Dark logo only -->
-          <img src="/themes/custom/radix_house_theme/images/dark_logo_text.svg" alt="{{ site_name }} logo" class="logo-image" style="min-width: 300px;">
-        {% endif %}
-        <span class="site-name">{{ site_name }}</span>
-      </a>
-    </div>
+  {% block block_content %}
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <h1>FOOBAR2600</h1>
+        
+        <!-- Branding Block -->
+        <div class="col">
+          <div class="branding-wrapper d-flex align-items-center">
+            {% if is_front %}
+block--system-branding-block.html.twig   | 2600-FRONT
+              <a href="/" class="navbar-brand">
+                <img src="/themes/custom/radix_house_theme/images/light_logo_text.svg" alt="{{ site_name }} logo" class="logo-image">
+              </a>
+            {% else %}
+block--system-branding-block.html.twig   | NOT-FRONT-2600-FRONT
+              <a href="/" class="navbar-brand">
+                <img src="/themes/custom/radix_house_theme/images/dark_logo_text.svg" alt="{{ site_name }} logo" class="logo-image">
+              </a>
+            {% endif %}
+            <span class="site-name">{{ site_name }}</span>
+          </div>
+        </div>
+      </div> <!-- End of row -->
+    </div> <!-- End of container-fluid -->
   {% endblock %}
 {% endembed %}

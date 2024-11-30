@@ -11,31 +11,107 @@ foreach (glob($includes_path) as $file) {
   require_once dirname(__FILE__) . '/includes/' . basename($file);
 }
 
+// Include the settings file if it exists.
+if (file_exists(__DIR__ . '/radix_rsvp.settings.php')) {
+  include_once __DIR__ . '/radix_rsvp.settings.php';
+}
+
+/**
+ * Helper function to load logos and site name images from theme settings.
+ */
+function _radix_rsvp_load_images() {
+  // Define the sizes for the images: mobile, tablet, desktop.
+  $sizes = ['mobile', 'tablet', 'desktop'];
+  $images = [];
+
+  // Loop through each size to fetch logos and site name images.
+  foreach ($sizes as $size) {
+    // Load logos.
+    $logo_fid = theme_get_setting("rsvp_logo_{$size}");
+    $images["rsvp_logo_{$size}"] = !empty($logo_fid) ? _radix_rsvp_get_file_url(is_array($logo_fid) ? $logo_fid[0] : $logo_fid) : '';
+
+    // Load inverted logos for scroll effects.
+    $logo_invert_fid = theme_get_setting("rsvp_logo_{$size}_invert");
+    $images["rsvp_logo_{$size}_invert"] = !empty($logo_invert_fid) ? _radix_rsvp_get_file_url(is_array($logo_invert_fid) ? $logo_invert_fid[0] : $logo_invert_fid) : '';
+
+    // Load site name images.
+    $site_name_fid = theme_get_setting("rsvp_site_name_{$size}");
+    $images["rsvp_site_name_{$size}"] = !empty($site_name_fid) ? _radix_rsvp_get_file_url(is_array($site_name_fid) ? $site_name_fid[0] : $site_name_fid) : '';
+ 
+    // Load inverted site name images for scroll effects.
+    $site_name_invert_fid = theme_get_setting("rsvp_site_name_{$size}_invert");
+    $images["rsvp_site_name_{$size}_invert"] = !empty($site_name_invert_fid) ? _radix_rsvp_get_file_url(is_array($site_name_invert_fid) ? $site_name_invert_fid[0] : $site_name_invert_fid) : '';
+  }
+
+  // Load consolidated ALT texts.
+  $images['rsvp_logo_alt_text'] = theme_get_setting('rsvp_logo_alt_text');
+  $images['rsvp_logo_text_alt_text'] = theme_get_setting('rsvp_logo_text_alt_text');
+
+  return $images;
+}
+
+/**
+ * Helper function to get the URL of a file by its file ID (FID).
+ */
+function _radix_rsvp_get_file_url($fid) {
+  $file = \Drupal\file\Entity\File::load($fid);
+  return $file ? $file->createFileUrl() : '';
+}
+
 /**
  * Implements hook_preprocess_HOOK() for block.html.twig.
  */
 function radix_rsvp_preprocess_block(&$variables) {
   // Add is_front variable to block templates.
   $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+
+  // Fetch logo and site name images and ALT texts.
+  $images = _radix_rsvp_load_images();
+
+  // Pass images and ALT texts to the block template.
+  $variables = array_merge($variables, $images);
+
+  // Check if the block is the FullCalendar block by its plugin ID.
+  if ($variables['plugin_id'] == 'views_block:calendar-block_1') {  // Use the correct block ID.
+    $variables['#attached']['library'][] = 'radix_rsvp/fullcalendar_custom_fix';  // Attach the FullCalendar fix library.
+  }
 }
 
 /**
- * Implements hook_preprocess_HOOK() for menu--main.html.twig.
+ * Implements hook_preprocess_HOOK() for the page template.
  */
-function radix_rsvp_preprocess_menu__main(&$variables) {
-  // Load the block using its UUID.
-  $uuid = 'a7a0b60f-ebd7-456e-abe9-a268f8616fb5';
-  $block_content = \Drupal::entityTypeManager()
-    ->getStorage('block_content')
-    ->loadByProperties(['uuid' => $uuid]);
+function radix_rsvp_preprocess_page(&$variables) {
+  // Step 1: Fetch logo and site name images.
+  $images = _radix_rsvp_load_images();
 
-  // Check if the block content was loaded.
-  if ($block_content) {
-    $block_content_entity = reset($block_content); // Get the block content entity.
-    
-    // Render the block and pass it to the template as 'custom_block'.
-    $variables['custom_block'] = \Drupal::entityTypeManager()
-      ->getViewBuilder('block_content')
-      ->view($block_content_entity);
+  // Ensure $images is an array and contains valid data before adding to $variables.
+  if (is_array($images)) {
+    foreach ($images as $key => $value) {
+      $variables[$key] = $value;
+    }
+  }
+
+  // Step 2: Load the main menu tree.
+  $menu_name = 'main';
+  $menu_tree = \Drupal::menuTree();
+  $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
+
+  // Check if we successfully obtained the menu tree parameters.
+  if (!empty($parameters)) {
+    // Load the menu tree using the parameters.
+    $tree = $menu_tree->load($menu_name, $parameters);
+
+    // Check if the menu tree is valid before building.
+    if (!empty($tree)) {
+      $menu = $menu_tree->build($tree);
+      $variables['navbar_menu'] = $menu;
+
+      // Log for debugging.
+      \Drupal::logger('radix_rsvp')->info('Navbar menu loaded successfully for menu: @menu', ['@menu' => $menu_name]);
+    } else {
+      \Drupal::logger('radix_rsvp')->warning('The menu tree for @menu is empty or not accessible.', ['@menu' => $menu_name]);
+    }
+  } else {
+    \Drupal::logger('radix_rsvp')->warning('Failed to get menu parameters for @menu.', ['@menu' => $menu_name]);
   }
 }

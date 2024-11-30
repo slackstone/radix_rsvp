@@ -1,6 +1,10 @@
 {
     "/build/js/main.script.js": "/build/js/main.script.js",
     "/build/css/main.style.css": "/build/css/main.style.css",
+    "/components/page/page.css": "/components/page/page.css",
     "/components/offcanvas/_offcanvas.css": "/components/offcanvas/_offcanvas.css",
-    "/build/assets/images/Whitingham_Vermont.webp": "/build/assets/images/Whitingham_Vermont.webp"
+    "/components/navbar/navbar.css": "/components/navbar/navbar.css",
+    "/components/html/html.css": "/components/html/html.css",
+    "/build/assets/images/rsvp_style_template.svg": "/build/assets/images/rsvp_style_template.svg",
+    "/build/assets/images/rsvp_style_template_breakboints.svg": "/build/assets/images/rsvp_style_template_breakboints.svg"
 }
