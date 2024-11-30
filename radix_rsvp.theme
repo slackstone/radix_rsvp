@@ -115,3 +115,13 @@ function radix_rsvp_preprocess_page(&$variables) {
     \Drupal::logger('radix_rsvp')->warning('Failed to get menu parameters for @menu.', ['@menu' => $menu_name]);
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for the navbar Twig template.
+ */
+function radix_rsvp_preprocess_navbar(&$variables) {
+  $images = _radix_rsvp_load_images();
+  
+  // Pass the loaded images to the template.
+  $variables['theme_settings'] = array_merge($variables['theme_settings'] ?? [], $images);
+}
