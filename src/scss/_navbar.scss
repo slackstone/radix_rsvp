@@ -5,7 +5,6 @@
   z-index: $zindex-fixed + 1; 
   // Define a custom property (CSS variable)
   --bs-navbar-toggler-border-radius: 0;
-  min-height: 85px;
 
   .navbar-brand {
     color: $primary-color;
