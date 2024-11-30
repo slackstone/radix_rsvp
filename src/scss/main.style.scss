@@ -160,51 +160,6 @@ max-width: none;
 .dropdown:hover > .dropdown-menu {
     display: block;
 }
-
-.navbar-toggler-icon {
-  display: block;
-  vertical-align: middle;
-  background-image: none; /* Remove background image */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-  text-align: center;
-  line-height: 30px; /* Center the text vertically */
-  position: relative; /* Relative positioning for pseudo-elements */
-  transition: all 0.6s ease; /* Smooth transition */
-}
-
-.navbar-toggler-icon::after {
-  font-size: 2rem; // Adjust the size as needed
-  font-weight: bold; // Make it bold
-  content: "☰"; /* Hamburger icon */
-  display: inline-block;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  line-height: inherit; /* Inherit line height */
-  text-align: center;
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
-}
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
-  font-size: 2rem; // Adjust the size as needed
-  font-weight: bold; // Make it bold
-  content: "X"; /* Close icon */
-  opacity: 1; /* Ensure visibility */
-  transform: rotate(90deg); /* Rotate for smooth transition */
-}
-
-// Dropdown menu styles
-.navbar-nav .dropdown-menu {
-  background-color: $background-color;
-  .dropdown-item {
-    color: $link-color;
-    &:hover {
-      color: $text-color;
-      background-color: $primary-color;
-    }
-  }
-}
-
 #rsvp_alert {
   position: relative; /* Normal flow for scrolling */
   top: 0;
