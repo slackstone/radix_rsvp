@@ -36,12 +36,14 @@
     {% block navbar_toggler %}
       <button class="navbar-toggler d-block d-lg-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
  aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+ FOOBAR-2600
     <picture id="rsvp_site_name_default">
-      <source srcset="{{ site_name_image_mobile }}" media="(max-width: 599px)">
-      <source srcset="{{ site_name_image_tablet }}" media="(min-width: 600px) and (max-width: 1024px)">
-      <source srcset="{{ site_name_image_desktop }}" media="(min-width: 1025px)">
-      <img src="{{ site_name_image_desktop }}" alt="{{ site_name }}" class="img-fluid">
-    </picture>
+        <picture id="rsvp_site_name_default">
+        <source srcset="{{ rsvp_site_name_mobile }}" media="(max-width: 599px)">
+        <source srcset="{{ rsvp_site_name_tablet }}" media="(min-width: 600px) and (max-width: 1024px)">
+        <source srcset="{{ rsvp_site_name_desktop }}" media="(min-width: 1025px)">
+        <img src="{{ rsvp_site_name_desktop }}" alt="{{ site_name }}" class="img-fluid">
+      </picture>
       </button>
 <button id="navbar-toggler" class="navbar-toggler d-block d-lg-none d-flex align-items-center" type="button" data-bs-toggle="collapse" 
 data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
