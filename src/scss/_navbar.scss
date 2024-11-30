@@ -68,3 +68,13 @@
     }
   }
 }
+
+#alert-wrapper {
+  position: sticky;
+  top: 0; // Ensures it's always at the top when scrolling
+  z-index: 1050; // Set a high enough z-index to ensure it stays above other components
+  background-color: #f8d7da; // Example background (adjust as needed)
+  padding: 10px; // Adjust padding
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Add shadow for emphasis
+}
+
