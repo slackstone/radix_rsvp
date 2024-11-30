@@ -457,6 +457,11 @@ color: black;
   padding:unset;
 }
 
+#navbar-name-toggler {
+    border: none !important;
+    box-shadow: none !important;
+}
+
 .navbar-toggler:hover {
   background-color: $primary-color;
 }
