@@ -90,8 +90,7 @@ function radix_rsvp_preprocess_page(&$variables) {
       $variables[$key] = $value;
     }
   }
-/
-/ Debug: Log or print the images to ensure they are loaded.
+//  Debug: Log or print the images to ensure they are loaded.
   \Drupal::logger('radix_rsvp')->debug('<pre>' . print_r($images, TRUE) . '</pre>');
 
   // Step 2: Load the main menu tree.
