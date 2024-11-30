@@ -11,6 +11,9 @@
 {% set placement = placement ?? 'sticky-top' %}
 {% set navbar_expand = navbar_expand ?? 'lg' %}
 {% set navbar_theme = navbar_theme ?? null %}
+{% set site_name_image_tablet = file_url(theme_get_setting('rsvp_site_name_tablet')) %}
+{% set site_name_image_desktop = file_url(theme_get_setting('rsvp_site_name_desktop')) %}
+
 
 {# Define container classes for the navbar #}
 {% set navbar_container_classes = [
