@@ -150,6 +150,10 @@ max-width: none;
   min-height: 200px;
 }
 
+#rsvp-fader-bar {
+  background-color: $background-dark-color;
+}
+
 /* Mobile StyleFrom Here Down */
 
 @include media-breakpoint-down(lg) {
