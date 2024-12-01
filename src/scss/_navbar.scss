@@ -69,6 +69,10 @@
     }
   }
 }
+.me-2 {
+  margin-right: 0 !important;
+}
+
 
 #alert-wrapper {
   z-index: $zindex-fixed - 1; 
