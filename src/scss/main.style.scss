@@ -160,9 +160,6 @@ max-width: none;
     width: 100%;         /* Ensure the block takes up full width until it hits the max-width */
 }
 
-.dropdown:hover > .dropdown-menu {
-    display: block;
-}
 #rsvp_alert {
   position: relative; /* Normal flow for scrolling */
   top: 0;
@@ -455,6 +452,7 @@ color: black;
   border: none;
   color: #FFB347;
   padding:unset;
+  justify-content: center;
 }
 
 #navbar-name-toggler {
@@ -681,12 +679,7 @@ body.path-frontpage .nav-link {
       color: white;
     }
 
-  /* Optional: smooth transition for showing/hiding the dropdown */
-  .dropdown-menu {
-    display: none; /* Hide the dropdown by default */
-    opacity: 0; /* Start hidden */
-    transition: opacity 0.3s ease; /* Smooth transition for the opacity */
-  }
+
 
   .block-system-branding-block {
     display: block;
