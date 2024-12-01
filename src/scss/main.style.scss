@@ -412,7 +412,7 @@ color: black;
 }
 
 .branding-wrapper {
-  background-color: #211711;
+  background-color: $background-dark-color;
   display: flex; /* Enable Flexbox */
   justify-content: center; /* Horizontally center */
   align-items: center; /* Vertically center */
@@ -612,12 +612,7 @@ body.path-frontpage .nav-link {
       transition: background-color 0.3s ease, z-index 0.3s ease, backdrop-filter 0.3s ease;
       width: 100%;
       z-index: 30;
-      background-color: #362e27;
-      backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
-      z-index: 88; /* Default z-index */
-      transition: background-color 0.3s ease, z-index 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for visual separation */
-      border-bottom: 1px solid rgba(77, 59, 46, 0.5);
+      background-color: $background-dark-color;
     }
     body.path-frontpage .toolbar-bar {
       position: fixed;
