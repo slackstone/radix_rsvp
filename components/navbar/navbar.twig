@@ -44,11 +44,11 @@
 </picture>
 
       </button>
-<button id="navbar-toggler" class="navbar-toggler d-block d-lg-none justify-content-center align-items-center" type="button" data-bs-toggle="collapse" 
-data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 10px;" >
-  <span class="navbar-toggler-icon"></span>
-  <span class="navbar-toggler-text me-2">Menu</span>
-</button>
+    <button id="navbar-toggler" class="navbar-toggler d-block d-lg-none d-flex justify-content-center align-items-center mx-auto" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 10px; text-align: center;">
+      <span class="navbar-toggler-icon d-flex align-items-center"></span>
+      <span class="navbar-toggler-text me-2 d-flex align-items-center justify-content-center" style="text-align: center;">Menu</span>
+    </button>
     {% endblock %}
     <div id="navbar-menu" class="navbar-collapse collapse">
       {% block menu_content %}
