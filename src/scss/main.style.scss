@@ -18,6 +18,7 @@ $background-dark-color: #362e27;
 $background-color: #ffffff;
 $nav-link-color: #ffffff;
 $nav-link-hover:#b7fd6e;
+$navbar:#e05d2f;
 $black: #000000;
 $white: #ffffff;
 $primary-color: #26242e; //grey
@@ -455,7 +456,7 @@ color: black;
 .navbar-toggler {
   background-color: #362e27; // Button color
   border: none;
-  color: #FFB347;
+  color: $navbar;
   padding:unset;
   justify-content: center;
 }
