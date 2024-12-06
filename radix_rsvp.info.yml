@@ -26,8 +26,7 @@ twig_namespaces:
 
 libraries:
   - radix_rsvp/style
-  - radix_house_theme/fontawesome
+  - radix_rsvp/fontawesome
 ckeditor5-stylesheets:
   - build/css/main.style.css
 generator: 'radix_starterkit:1.0.0'
-
