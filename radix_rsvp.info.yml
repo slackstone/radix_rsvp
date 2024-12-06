@@ -2,7 +2,7 @@ name: radix_rsvp
 screenshot: screenshot.png
 'alt text': 'radix_starterkit theme screenshot'
 core_version_requirement: ^10
-version: 1.0.0
+version: 1.0.2
 engine: twig
 type: theme
 'base theme': radix
@@ -22,7 +22,7 @@ regions:
   footer: Footer
 
 twig_namespaces:
-  radix_rsvp: 'themes/custom/radix_house_theme/components'
+  radix_rsvp: 'themes/custom/radix_rsvp/components'
 
 libraries:
   - radix_rsvp/style
