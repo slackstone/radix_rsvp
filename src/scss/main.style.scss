@@ -155,6 +155,17 @@ max-width: none;
   background-color: $background-dark-color;
 }
 
+/* Ensure both logos overlap perfectly */
+.logo-container picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure the logo fits the container */
+  height: auto;
+  transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+
 /* Mobile StyleFrom Here Down */
 
 @include media-breakpoint-down(lg) {

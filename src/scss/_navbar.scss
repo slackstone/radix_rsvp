@@ -1,5 +1,6 @@
+$background-dark-color: #362e27;
 .navbar {
-  background-color: purple;
+  background-color: $background-dark-color;
   position: sticky;
   top: 0;
   z-index: $zindex-fixed + 1; 
