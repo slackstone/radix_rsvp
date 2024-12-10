@@ -8,7 +8,6 @@ type: theme
 'base theme': radix
 starterkit: true
 dependencies:
-  - 'drupal:sdc'
   - 'drupal:serialization'
 'interface translation project': radix_rsvp
 'interface translation server pattern': themes/custom/radix_rsvp/translations/%language.po
