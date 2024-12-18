@@ -3,6 +3,7 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
 
+
 /**
  * Implements hook_form_system_theme_settings_alter() for radix_rsvp theme.
  */
@@ -17,7 +18,7 @@ function radix_rsvp_form_system_theme_settings_alter(&$form, FormStateInterface 
 
   $logo_sizes = ['mobile', 'tablet', 'desktop'];
   
-  // Loop through each size and add fields for logo and inverted logo.
+  // Add managed_file fields for each size as you already have.
   foreach ($logo_sizes as $size) {
     // Normal logo field
     $form['rsvp_logo_settings']["rsvp_logo_{$size}"] = [
@@ -51,6 +52,15 @@ function radix_rsvp_form_system_theme_settings_alter(&$form, FormStateInterface 
     ];
   }
 
+  // Add a text field for the logo alt text
+  $form['rsvp_logo_settings']['rsvp_logo_alt_text'] = [
+    '#type' => 'textfield',
+    '#title' => t('Logo Alt Text'),
+    '#default_value' => theme_get_setting('rsvp_logo_alt_text'),
+    '#description' => t('Enter the alt text for the logos.'),
+  ];
+
+
   // Add the site name image upload fields back to the settings
   $form['rsvp_site_name_settings'] = [
     '#type' => 'details',
@@ -58,7 +68,6 @@ function radix_rsvp_form_system_theme_settings_alter(&$form, FormStateInterface 
     '#open' => TRUE,
   ];
 
-  // Loop through each size and add fields for site name image and inversion.
   foreach ($logo_sizes as $size) {
     // Normal site name field
     $form['rsvp_site_name_settings']["rsvp_site_name_{$size}"] = [
@@ -92,7 +101,15 @@ function radix_rsvp_form_system_theme_settings_alter(&$form, FormStateInterface 
     ];
   }
 
-  // Add the submit handler
+  // Add a text field for the site name alt text
+  $form['rsvp_site_name_settings']['rsvp_logo_text_alt_text'] = [
+    '#type' => 'textfield',
+    '#title' => t('Site Name Alt Text'),
+    '#default_value' => theme_get_setting('rsvp_logo_text_alt_text'),
+    '#description' => t('Enter the alt text for the site name images.'),
+  ];
+
+  // Add the submit handler as before.
   $form['#submit'][] = 'radix_rsvp_theme_settings_submit';
 }
 
@@ -102,7 +119,6 @@ function radix_rsvp_form_system_theme_settings_alter(&$form, FormStateInterface 
 function radix_rsvp_theme_settings_submit(&$form, FormStateInterface $form_state) {
   // List of file fields from the form.
   $logo_sizes = ['mobile', 'tablet', 'desktop'];
-  
   // Loop through each size.
   foreach ($logo_sizes as $size) {
     // Process both logos and site name images.

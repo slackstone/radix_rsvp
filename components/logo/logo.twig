@@ -1,5 +1,20 @@
 <div id="rsvp-site-logo">
- <h1> LOGO CIRCLE Here</h1>
+  <picture>
+    {% if rsvp_logo_desktop %}
+      <!-- Desktop: for large screens -->
+      <source srcset="{{ rsvp_logo_desktop }}" media="(min-width: 992px)">
+    {% endif %}
+
+    {% if rsvp_logo_tablet %}
+      <!-- Tablet: for medium screens -->
+      <source srcset="{{ rsvp_logo_tablet }}" media="(min-width: 768px)">
+    {% endif %}
+
+    {% if rsvp_logo_mobile %}
+      <!-- Mobile: for small screens -->
+      <img src="{{ rsvp_logo_mobile }}" alt="{{ rsvp_logo_alt_text }}">
+    {% endif %}
+  </picture>
 </div>
-<div id="rsvp-fade-bar" style="width: 100%; margin: unset; min-height: 40px;">
-</div>
+
+<div id="rsvp-fade-bar" style="width: 100%; margin: unset; min-height: 40px;"></div>
