@@ -118,3 +118,41 @@ function radix_rsvp_preprocess_page(&$variables) {
   }
 }
 
+/**
+ * Implements hook_preprocess_html().
+ */
+function radix_rsvp_preprocess_html(&$variables) {
+  // Define the color keys and their defaults.
+  $colors = [
+    'dark_primary' => '#E2E8F0',
+    'accent_primary' => '#E2E8F0',
+    'absolute_dark' => '#E2E8F0',
+    'grey' => '#E2E8F0',
+    'accent_light' => '#F2F6FB',
+    'trace_primary' => '#EDF2F7',
+    'trace_accent' => '#E2E8F0',
+  ];
+
+  // Build the CSS variable string.
+  $inline_css = ":root {\n";
+  foreach ($colors as $key => $default) {
+    // Get the overridden value from theme settings or use the default.
+    $value = theme_get_setting("color_{$key}") ?: $default;
+
+    // Convert underscores to hyphens in the CSS variable name.
+    $css_var_name = '--color-' . str_replace('_', '-', $key);
+
+    $inline_css .= "  {$css_var_name}: {$value};\n";
+  }
+  $inline_css .= "}";
+
+  // Attach the inline CSS to the <head> of the page.
+  $variables['#attached']['html_head'][] = [
+    [
+      '#type' => 'html_tag',
+      '#tag' => 'style',
+      '#value' => $inline_css,
+    ],
+    'radix_rsvp-inline-colors',
+  ];
+}

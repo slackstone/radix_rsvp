@@ -3,7 +3,6 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
 
-
 /**
  * Implements hook_form_system_theme_settings_alter() for radix_rsvp theme.
  */
@@ -17,8 +16,8 @@ function radix_rsvp_form_system_theme_settings_alter(&$form, FormStateInterface 
   ];
 
   $logo_sizes = ['mobile', 'tablet', 'desktop'];
-  
-  // Add managed_file fields for each size as you already have.
+
+  // Add managed_file fields for each size.
   foreach ($logo_sizes as $size) {
     // Normal logo field
     $form['rsvp_logo_settings']["rsvp_logo_{$size}"] = [
@@ -52,7 +51,7 @@ function radix_rsvp_form_system_theme_settings_alter(&$form, FormStateInterface 
     ];
   }
 
-  // Add a text field for the logo alt text
+  // Logo alt text field
   $form['rsvp_logo_settings']['rsvp_logo_alt_text'] = [
     '#type' => 'textfield',
     '#title' => t('Logo Alt Text'),
@@ -60,8 +59,7 @@ function radix_rsvp_form_system_theme_settings_alter(&$form, FormStateInterface 
     '#description' => t('Enter the alt text for the logos.'),
   ];
 
-
-  // Add the site name image upload fields back to the settings
+  // Add the site name image upload fields
   $form['rsvp_site_name_settings'] = [
     '#type' => 'details',
     '#title' => t('RSVP System Site Name Image Settings'),
@@ -101,7 +99,7 @@ function radix_rsvp_form_system_theme_settings_alter(&$form, FormStateInterface 
     ];
   }
 
-  // Add a text field for the site name alt text
+  // Site name alt text field
   $form['rsvp_site_name_settings']['rsvp_logo_text_alt_text'] = [
     '#type' => 'textfield',
     '#title' => t('Site Name Alt Text'),
@@ -109,31 +107,58 @@ function radix_rsvp_form_system_theme_settings_alter(&$form, FormStateInterface 
     '#description' => t('Enter the alt text for the site name images.'),
   ];
 
+
+$form['rsvp_color_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Color Settings'),
+    '#open' => TRUE,
+  ];
+
+  $colors = [
+    'dark_primary' => '#183043',
+    'accent_primary' => '#2B6CB0',
+    'absolute_dark' => '#000000',
+    'grey' => '#808080',
+    'accent_light' => '#F2F6FB',
+    'trace_primary' => '#EDF2F7',
+    'trace_accent' => '#E2E8F0',
+  ];
+
+  foreach ($colors as $key => $default) {
+    $form['rsvp_color_settings']["color_{$key}"] = [
+      '#type' => 'textfield',
+      '#title' => t(ucwords(str_replace('_',' ', $key)) . ' Color'),
+      '#default_value' => theme_get_setting("color_{$key}") ?: $default,
+      '#description' => t('Enter a hex color code (e.g. #183043).'),
+      '#attributes' => [
+        'pattern' => '^#[0-9A-Fa-f]{6}$',
+        'title' => t('Please enter a valid 6-digit hex color code beginning with "#".')
+      ],
+    ];
+  }
+
   // Add the submit handler as before.
   $form['#submit'][] = 'radix_rsvp_theme_settings_submit';
+  // Add validation callback for server-side validation of hex codes.
+  $form['#validate'][] = 'radix_rsvp_color_settings_validate';
 }
 
 /**
  * Submit handler to process file uploads and removals.
  */
 function radix_rsvp_theme_settings_submit(&$form, FormStateInterface $form_state) {
-  // List of file fields from the form.
   $logo_sizes = ['mobile', 'tablet', 'desktop'];
-  // Loop through each size.
   foreach ($logo_sizes as $size) {
-    // Process both logos and site name images.
     foreach (['rsvp_logo', 'rsvp_site_name'] as $type) {
-      // Handle both normal and inverted versions.
       foreach (['', '_invert'] as $suffix) {
         $file_fid = $form_state->getValue("{$type}_{$size}{$suffix}");
         $remove_field = $form_state->getValue("{$type}_{$size}{$suffix}_remove");
 
         if ($remove_field && !empty($file_fid[0])) {
-          // Remove the file if the checkbox is checked.
           $file = File::load($file_fid[0]);
           if ($file) {
             $file->delete();
-            $form_state->setValue("{$type}_{$size}{$suffix}", NULL); // Unset file value.
+            $form_state->setValue("{$type}_{$size}{$suffix}", NULL);
           }
         } elseif (!empty($file_fid[0])) {
           // Set file as permanent if uploaded.
@@ -144,6 +169,29 @@ function radix_rsvp_theme_settings_submit(&$form, FormStateInterface $form_state
           }
         }
       }
+    }
+  }
+}
+
+/**
+ * Validation callback to ensure color fields are valid hex codes.
+ */
+function radix_rsvp_color_settings_validate($form, FormStateInterface $form_state) {
+  $colors = [
+    'dark_primary',
+    'accent_primary',
+    'absolute_dark',
+    'grey',
+    'accent_light',
+    'trace_primary',
+    'trace_accent',
+  ];
+  foreach ($colors as $color_key) {
+    $value = $form_state->getValue("color_{$color_key}");
+    if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $value)) {
+      $form_state->setErrorByName("color_{$color_key}", t('Please enter a valid 6-digit hex code for @name.', [
+        '@name' => str_replace('_', ' ', $color_key)
+      ]));
     }
   }
 }
