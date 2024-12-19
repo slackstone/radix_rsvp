@@ -72,9 +72,47 @@ function radix_rsvp_preprocess_block(&$variables) {
   $variables = array_merge($variables, $images);
 
   // Check if the block is the FullCalendar block by its plugin ID.
-  if ($variables['plugin_id'] == 'views_block:calendar-block_1') {  // Use the correct block ID.
+  if ($variables['plugin_id'] == 'views_block:calendar-block_1') {
     $variables['#attached']['library'][] = 'radix_rsvp/fullcalendar_custom_fix';  // Attach the FullCalendar fix library.
   }
+
+// Check if the block is a Splash Image block by its plugin ID.
+
+if ($variables['plugin_id'] == 'block_content:splash_image') {
+  \Drupal::logger('splash_image_debug')->debug('Condition met: plugin_id matches block_content:splash_image');
+} else {
+  \Drupal::logger('splash_image_debug')->debug('Condition not met: plugin_id does not match block_content:splash_image');
+}
+
+
+
+// Check if the block is a Splash Image block by its plugin ID.
+ // Check if the block is a Splash Image block type.
+  if (isset($variables['content']['#block_content']) && $variables['content']['#block_content']->bundle() == 'splash_image') {
+    $block_content = $variables['content'];
+
+    // Helper function to extract file URLs from Media fields.
+    $getMediaFileUrl = function ($field) {
+      if (!empty($field['#items'])) {
+        $media_entity = $field['#items']->entity;
+        if ($media_entity && $media_entity->hasField('field_media_image') && !$media_entity->get('field_media_image')->isEmpty()) {
+          $file = $media_entity->get('field_media_image')->entity;
+          if ($file) {
+            // Use the file_url_generator service to create an absolute URL.
+            return \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+          }
+        }
+      }
+      return null;
+    };
+
+    // Extract URLs for each field.
+    $variables['splash_landscape_webp'] = $getMediaFileUrl($block_content['field_splash_landscape_webp'] ?? []);
+    $variables['splash_landscape_fallback'] = $getMediaFileUrl($block_content['field_splash_landscape_fallback'] ?? []);
+    $variables['splash_portrait_webp'] = $getMediaFileUrl($block_content['field_splash_portrait_webp'] ?? []);
+    $variables['splash_portrait_fallback'] = $getMediaFileUrl($block_content['field_splash_portrait_fallback'] ?? []);
+  }
+
 }
 
 /**

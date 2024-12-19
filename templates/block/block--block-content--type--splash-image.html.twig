@@ -1,0 +1,39 @@
+{#
+  Template for the "Splash Image" block type.
+  Assumes the following fields exist in the block content:
+  - content.field_splash_landscape_image_webp
+  - content.field_splash_landscape_image_fallback
+  - content.field_splash_portrait_image_webp
+  - content.field_splash_portrait_image_fallback
+#}
+
+<h2>Debugging Splash Image Variables:</h2>
+<pre>{{ dump() }}</pre>
+<pre>{{ dump(content) }}</pre>
+FOOBAR-2600-ahsy
+<pre>{{ splash_landscape_webp }}</pre>
+<pre>{{ splash_landscape_fallback }}</pre>
+<pre>{{ splash_portrait_webp }}</pre>
+<pre>{{ splash_portrait_fallback }}</pre>
+
+
+
+<picture>
+  {# Landscape WebP and fallback for desktop devices #}
+  <source srcset="{{ splash_landscape_webp }}" type="image/webp" media="(min-width: 768px)">
+  <source srcset="{{ splash_landscape_fallback }}" type="image/jpeg" media="(min-width: 768px)">
+
+  {# Portrait WebP and fallback for mobile devices #}
+  <source srcset="{{ splash_portrait_webp }}" type="image/webp" media="(max-width: 767px)">
+  <source srcset="{{ splash_portrait_fallback }}" type="image/jpeg" media="(max-width: 767px)">
+
+  {# Final fallback #}
+  <img src="{{ splash_portrait_fallback }}" alt="">
+</picture>
+
+
+
+
+
+
+
