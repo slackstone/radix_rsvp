@@ -54,7 +54,7 @@ main {
 
 footer {
   position: relative;
-  background-color: #183043;
+  background-color: var(--color-dark-primary);
   color: white;
   z-index: 20;
 }
