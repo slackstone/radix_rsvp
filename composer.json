@@ -1,0 +1,26 @@
+{
+    "name": "slackstone/radix_rsvp",
+    "description": "A Drupal theme for the RSVP System, based on the Radix theme framework.",
+    "type": "drupal-theme",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://github.com/slackstone/radix_rsvp",
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "your.email@example.com",
+            "homepage": "https://github.com/slackstone",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/slackstone/radix_rsvp/issues",
+        "source": "https://github.com/slackstone/radix_rsvp"
+    },
+    "require": {
+        "composer/installers": "^2.0",
+        "drupal/radix": "^6.0"  // Adjust the version based on the Radix version you are using
+    },
+    "extra": {
+        "installer-name": "radix_rsvp"
+    }
+}
