@@ -17,7 +17,6 @@
         "source": "https://github.com/slackstone/radix_rsvp"
     },
     "require": {
-        "composer/installers": "^2.0",
         "drupal/radix": "^6.0"
     },
     "extra": {
