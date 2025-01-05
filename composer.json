@@ -18,7 +18,7 @@
     },
     "require": {
         "composer/installers": "^2.0",
-        "drupal/radix": "^6.0"  // Adjust the version based on the Radix version you are using
+        "drupal/radix": "^6.0"
     },
     "extra": {
         "installer-name": "radix_rsvp"
