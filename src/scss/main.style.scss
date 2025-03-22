@@ -46,6 +46,8 @@ main {
   -ms-transition: margin-top 0.3s ease-in-out;     /* IE10 */
   position: relative;
   z-index: 40; /* Higher z-index to place <main> above #splash--wordmark */
+  padding-left: 3%;
+  padding-right: 2%;
 }
 
 .author, .author a {
